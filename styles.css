@@ -1,98 +1,87 @@
 /* ============================================================
-   PULMÓN VERDE - Sistema de Diseño CSS
-   ============================================================
-   Arquitectura: Variables CSS nativas + Componentes modulares
-   Metodología: BEM-like (Block Element Modifier)
-   Responsive: Mobile-first con breakpoints en 768px y 1024px
+   PULMÓN VERDE - Sistema de Diseño CSS v2.0
+   Optimizado para 60fps, WCAG 2.1 AA y animaciones GPU-accelerated
    ============================================================ */
 
 /* ----------------------------------------------------------
-   1. VARIABLES GLOBALES (Custom Properties)
-   Definen la identidad visual: colores, tipografía, espaciado
+   1. VARIABLES GLOBALES
    ---------------------------------------------------------- */
 :root {
-  /* Paleta de Colores Oficial */
-  --color-primary:       #357A3E;   /* Verde principal - headers, acentos */
-  --color-primary-dark:  #196128;   /* Verde oscuro - hover states */
-  --color-primary-light: #A8C293;   /* Verde suave - fondos, badges */
-  --color-primary-muted: #e1fcc9;   /* Verde muy claro - fondos de iconos */
+  --color-primary:       #357A3E;
+  --color-primary-dark:  #196128;
+  --color-primary-light: #A8C293;
+  --color-primary-muted: #e1fcc9;
 
-  --color-accent:        #F2801F;   /* Naranja CTA - botones, promociones */
-  --color-accent-hover:  #d9731b;   /* Naranja oscuro - hover botones */
-  --color-accent-glow:   rgba(242, 128, 31, 0.4); /* Sombra naranja */
+  --color-accent:        #F2801F;
+  --color-accent-hover:  #d9731b;
+  --color-accent-glow:   rgba(242, 128, 31, 0.4);
 
-  --color-earth-dark:    #71300F;   /* Tierra oscuro - footer, textos sec. */
-  --color-earth-mid:     #9B5A2B;   /* Tierra medio - subtítulos, bordes */
-  --color-earth-light:   #c0c9bc;   /* Tierra claro - bordes sutiles */
+  --color-earth-dark:    #71300F;
+  --color-earth-mid:     #9B5A2B;
+  --color-earth-light:   #c0c9bc;
 
-  --color-surface:       #fdfdfc;   /* Fondo principal - blanco crema */
-  --color-surface-alt:   #f5f5f0;   /* Fondo alterno - secciones */
-  --color-text:          #0d2002;   /* Texto principal - casi negro verdoso */
-  --color-text-muted:    #40493f;   /* Texto secundario - gris verdoso */
+  --color-surface:       #fdfdfc;
+  --color-surface-alt:   #f5f5f0;
+  --color-text:          #0d2002;
+  --color-text-muted:    #40493f;
   --color-white:         #ffffff;
 
-  /* Tipografía */
-  --font-heading: 'Poppins', sans-serif;    /* H1, H2, H3 - Títulos */
-  --font-body:    'Montserrat', sans-serif; /* Párrafos, botones, labels */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body:    'Montserrat', sans-serif;
 
-  /* Escalas Tipográficas */
-  --text-xs:   0.75rem;   /* 12px  - Badges, captions */
-  --text-sm:   0.875rem;  /* 14px  - Labels, nav links */
-  --text-base: 1rem;      /* 16px  - Body */
-  --text-lg:   1.125rem;  /* 18px  - Subtítulos */
-  --text-xl:   1.5rem;    /* 24px  - H3 */
-  --text-2xl:  2rem;      /* 32px  - H2 */
-  --text-3xl:  3rem;      /* 48px  - H1 Desktop */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+  --text-3xl:  3rem;
 
-  /* Espaciado (Sistema 8px base) */
-  --space-1: 0.5rem;   /* 8px  */
-  --space-2: 1rem;     /* 16px */
-  --space-3: 1.5rem;   /* 24px */
-  --space-4: 2rem;     /* 32px */
-  --space-5: 3rem;     /* 48px */
-  --space-6: 4rem;     /* 64px */
-  --space-7: 5rem;     /* 80px */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 5rem;
 
-  /* Layout */
   --container-max: 1280px;
   --container-padding: var(--space-2);
-  --radius-sm: 0.5rem;   /* 8px  - Botones, inputs */
-  --radius-md: 0.75rem;  /* 12px - Cards */
-  --radius-lg: 1rem;     /* 16px - Imágenes */
-  --radius-xl: 1.5rem;   /* 24px - Contenedores grandes */
-  --radius-full: 9999px; /* Pills, círculos */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
 
-  /* Sombras */
   --shadow-sm: 0 2px 8px rgba(53, 122, 62, 0.08);
   --shadow-md: 0 4px 20px rgba(53, 122, 62, 0.12);
   --shadow-lg: 0 10px 40px rgba(53, 122, 62, 0.15);
   --shadow-accent: 0 4px 16px rgba(242, 128, 31, 0.3);
 
-  /* Transiciones */
-  --transition-fast: 150ms ease;
-  --transition-base: 300ms ease;
-  --transition-slow: 500ms ease;
+  /* Curva de easing premium para micro-interacciones */
+  --ease-out-expo: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-fast: 150ms var(--ease-out-expo);
+  --transition-base: 300ms var(--ease-out-expo);
+  --transition-slow: 500ms var(--ease-out-expo);
+  --transition-bounce: 400ms var(--ease-out-back);
 }
 
-/* Tablet: más espacio lateral */
 @media (min-width: 768px) {
-  :root {
-    --container-padding: var(--space-3);
-  }
+  :root { --container-padding: var(--space-3); }
 }
 
-/* Desktop: máximo ancho centrado */
 @media (min-width: 1024px) {
   :root {
     --container-padding: var(--space-4);
-    --text-3xl: 3.5rem; /* 56px H1 más grande en desktop */
+    --text-3xl: 3.5rem;
   }
 }
 
 
 /* ----------------------------------------------------------
    2. RESET Y BASE
-   Normalización suave + estilos base semánticos
    ---------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -101,7 +90,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Scroll suave entre anclas */
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -115,7 +104,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Tipografía Headings */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -128,30 +116,20 @@ h2 { font-size: var(--text-2xl); }
 h3 { font-size: var(--text-xl); }
 h4 { font-size: var(--text-lg); }
 
-/* Enlaces base */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-base);
-}
-
-/* Listas sin estilo por defecto */
+a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
-/* Imágenes responsive */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Inputs base */
 input, select, textarea, button {
   font-family: inherit;
   font-size: inherit;
 }
 
-/* Focus visible para accesibilidad */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
@@ -160,10 +138,7 @@ input, select, textarea, button {
 
 /* ----------------------------------------------------------
    3. UTILIDADES / LAYOUT
-   Clases reutilizables para estructura
    ---------------------------------------------------------- */
-
-/* Contenedor central con máximo ancho */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -173,21 +148,14 @@ input, select, textarea, button {
   padding-right: var(--container-padding);
 }
 
-/* Secciones genéricas */
 .section {
   padding-top: var(--space-6);
   padding-bottom: var(--space-6);
 }
 
-.section--white {
-  background-color: var(--color-white);
-}
+.section--white { background-color: var(--color-white); }
+.section--muted { background-color: var(--color-surface-alt); }
 
-.section--muted {
-  background-color: var(--color-surface-alt);
-}
-
-/* Encabezado de sección */
 .section__header {
   text-align: center;
   margin-bottom: var(--space-5);
@@ -209,9 +177,7 @@ input, select, textarea, button {
   }
 }
 
-.section__title {
-  margin-bottom: var(--space-2);
-}
+.section__title { margin-bottom: var(--space-2); }
 
 .section__subtitle {
   font-family: var(--font-body);
@@ -220,7 +186,8 @@ input, select, textarea, button {
   max-width: 600px;
 }
 
-/* Badges / Etiquetas */
+/* Badge glassmorphism - CORREGIDO: fondo oscuro semitransparente
+   para garantizar contraste WCAG 2.1 AA (ratio >= 4.5:1) */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -233,13 +200,17 @@ input, select, textarea, button {
 }
 
 .badge--glass {
-  background-color: rgba(168, 194, 147, 0.25);
+  /* Fondo oscuro semitransparente en lugar de verde claro transparente.
+     Esto asegura que el texto blanco tenga siempre suficiente contraste
+     sobre cualquier imagen de fondo, cumpliendo WCAG 2.1 AA. */
+  background-color: rgba(13, 32, 2, 0.55);
   color: var(--color-white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Links con acento */
 .link--accent {
   display: inline-flex;
   align-items: center;
@@ -247,16 +218,17 @@ input, select, textarea, button {
   color: var(--color-accent);
   font-weight: 600;
   font-size: var(--text-sm);
+  transition: gap var(--transition-fast);
 }
 
 .link--accent:hover {
+  gap: var(--space-2);
   text-decoration: underline;
 }
 
 
 /* ----------------------------------------------------------
-   4. COMPONENTE: BOTONES
-   Variantes: primary, secondary, outline, large, full
+   4. BOTONES
    ---------------------------------------------------------- */
 .btn {
   display: inline-flex;
@@ -270,7 +242,9 @@ input, select, textarea, button {
   font-size: var(--text-sm);
   cursor: pointer;
   border: 2px solid transparent;
-  transition: 
+  position: relative;
+  overflow: hidden;
+  transition:
     background-color var(--transition-base),
     border-color var(--transition-base),
     color var(--transition-base),
@@ -278,69 +252,84 @@ input, select, textarea, button {
     box-shadow var(--transition-base);
 }
 
-/* Botón primario: Naranja CTA */
+/* Efecto shine/brillo en hover para CTAs */
 .btn--primary {
   background-color: var(--color-accent);
   color: var(--color-white);
   box-shadow: var(--shadow-accent);
 }
 
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  transform: skewX(-20deg);
+  transition: left 600ms var(--ease-out-expo);
+  pointer-events: none;
+}
+
 .btn--primary:hover {
   background-color: var(--color-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(242, 128, 31, 0.4);
+  box-shadow: 0 6px 24px rgba(242, 128, 31, 0.45);
+}
+
+.btn--primary:hover::before {
+  left: 120%;
 }
 
 .btn--primary:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0) scale(0.97);
 }
 
-/* Botón secundario: Outline verde */
 .btn--secondary {
   background-color: transparent;
   color: var(--color-accent);
   border-color: var(--color-accent);
+  transition: all var(--transition-base);
 }
 
 .btn--secondary:hover {
   background-color: var(--color-accent);
   color: var(--color-white);
+  box-shadow: var(--shadow-accent);
 }
 
-/* Botón outline blanco (para fondos oscuros) */
 .btn--outline {
   background-color: transparent;
   color: var(--color-white);
   border-color: rgba(255, 255, 255, 0.6);
+  transition: all var(--transition-base);
 }
 
 .btn--outline:hover {
   background-color: var(--color-white);
   color: var(--color-primary);
   border-color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
 }
 
-/* Tamaños */
 .btn--large {
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-base);
 }
 
-.btn--full {
-  width: 100%;
-}
+.btn--full { width: 100%; }
 
-/* Icono interno del botón */
-.btn__icon {
-  font-size: 1.1em;
-}
+.btn__icon { font-size: 1.1em; }
 
 
 /* ----------------------------------------------------------
-   5. COMPONENTE: NAVBAR
-   - Sticky con transición de fondo al scroll
-   - Glassmorphism ligero
-   - Menú responsive: desktop horizontal / móvil hamburger
+   5. NAVBAR
    ---------------------------------------------------------- */
 .navbar {
   position: sticky;
@@ -351,13 +340,13 @@ input, select, textarea, button {
   align-items: center;
   background-color: rgba(253, 253, 252, 0.85);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(155, 90, 43, 0.15);
-  transition: 
+  transition:
     background-color var(--transition-base),
     box-shadow var(--transition-base);
 }
 
-/* Estado scrolled: fondo más sólido */
 .navbar--scrolled {
   background-color: rgba(253, 253, 252, 0.98);
   box-shadow: var(--shadow-sm);
@@ -382,17 +371,14 @@ input, select, textarea, button {
   object-fit: contain;
 }
 
-/* Navegación desktop */
 .navbar__nav {
-  display: none; /* Oculto en móvil */
+  display: none;
   align-items: center;
   gap: var(--space-4);
 }
 
 @media (min-width: 768px) {
-  .navbar__nav {
-    display: flex;
-  }
+  .navbar__nav { display: flex; }
 }
 
 .navbar__link {
@@ -401,9 +387,9 @@ input, select, textarea, button {
   color: var(--color-text-muted);
   padding: var(--space-1) 0;
   position: relative;
+  transition: color var(--transition-base);
 }
 
-/* Underline animado en hover */
 .navbar__link::after {
   content: '';
   position: absolute;
@@ -425,18 +411,12 @@ input, select, textarea, button {
   width: 100%;
 }
 
-/* CTA desktop */
-.navbar__actions {
-  display: none;
-}
+.navbar__actions { display: none; }
 
 @media (min-width: 768px) {
-  .navbar__actions {
-    display: block;
-  }
+  .navbar__actions { display: block; }
 }
 
-/* Botón hamburger móvil */
 .navbar__toggle {
   display: flex;
   align-items: center;
@@ -448,6 +428,7 @@ input, select, textarea, button {
   color: var(--color-primary);
   cursor: pointer;
   border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
 }
 
 .navbar__toggle:hover {
@@ -455,12 +436,9 @@ input, select, textarea, button {
 }
 
 @media (min-width: 768px) {
-  .navbar__toggle {
-    display: none;
-  }
+  .navbar__toggle { display: none; }
 }
 
-/* Menú móvil deslizable */
 .mobile-menu {
   position: fixed;
   top: 80px;
@@ -492,6 +470,11 @@ input, select, textarea, button {
   font-size: var(--text-2xl);
   font-weight: 600;
   color: var(--color-earth-dark);
+  transition: color var(--transition-fast);
+}
+
+.mobile-menu__link:hover {
+  color: var(--color-primary);
 }
 
 .mobile-menu__cta {
@@ -500,10 +483,7 @@ input, select, textarea, button {
 
 
 /* ----------------------------------------------------------
-   6. COMPONENTE: HERO SECTION
-   - Pantalla completa (90vh)
-   - Imagen de fondo con overlay degradado
-   - Contenido centrado con animación de entrada
+   6. HERO
    ---------------------------------------------------------- */
 .hero {
   position: relative;
@@ -526,8 +506,9 @@ input, select, textarea, button {
   background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSUCSdHlQ2BSkrPMCZgbP19NQZSGpu7hqrjLc9__PMflXx_fRlddx0AQf5kDUnsfjYn5GL_93M3gSffJfzz9BKq24NQIT_shKJBiKKMzUUMsql5gXHoZReFtlSII_qUCcxTGvh24i0LmHNVF0HLLGGTHj4EQVyWpBU6aJu3GKJagixLbv-8CUbV1jLhRRIDIf6wSQkAXJcrvdjsDKNAZVIwWR93FhoYOTYWIs0LI61tGT1v4bP_xyL9g');
   background-size: cover;
   background-position: center;
-  transform: scale(1.05); /* Prepara zoom sutil */
-  transition: transform 10s ease;
+  transform: scale(1.05);
+  transition: transform 10s linear;
+  will-change: transform;
 }
 
 .hero:hover .hero__image {
@@ -539,27 +520,25 @@ input, select, textarea, button {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(13, 32, 2, 0.75) 0%,
-    rgba(53, 122, 62, 0.65) 100%
+    rgba(13, 32, 2, 0.78) 0%,
+    rgba(53, 122, 62, 0.68) 100%
   );
 }
 
-/* Contenido del hero */
 .hero__content {
   position: relative;
   z-index: 1;
   text-align: center;
   color: var(--color-white);
   padding-top: var(--space-6);
-  animation: fadeInUp 0.8s ease-out both;
 }
 
 .hero__title {
-  font-size: clamp(2rem, 5vw, 3.5rem); /* Fluid typography */
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   color: var(--color-white);
   margin: var(--space-3) 0;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
   line-height: 1.1;
 }
 
@@ -589,7 +568,6 @@ input, select, textarea, button {
   }
 }
 
-/* Indicador de scroll animado */
 .hero__scroll {
   position: absolute;
   bottom: var(--space-4);
@@ -602,9 +580,10 @@ input, select, textarea, button {
   display: block;
   width: 2px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.35);
   position: relative;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .hero__scroll-line::after {
@@ -615,19 +594,7 @@ input, select, textarea, button {
   width: 100%;
   height: 100%;
   background: var(--color-white);
-  animation: scrollDown 2s infinite ease-in-out;
-}
-
-/* Animación de entrada */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  animation: scrollDown 2.2s infinite ease-in-out;
 }
 
 @keyframes scrollDown {
@@ -638,10 +605,36 @@ input, select, textarea, button {
 
 
 /* ----------------------------------------------------------
-   7. COMPONENTE: GRID DE SERVICIOS
-   - 3 columnas en desktop
-   - Cards con elevación en hover
-   - Iconos circulares con fondo verde suave
+   7. ANIMACIONES DE ENTRADA POR SCROLL (GPU-Accelerated)
+   Solo transform y opacity. will-change se aplica dinámicamente
+   vía JS para no consumir memoria GPU de forma permanente.
+   ---------------------------------------------------------- */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+}
+
+.animate-on-scroll--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays para hijos dentro de un grid */
+.services-grid .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.services-grid .animate-on-scroll:nth-child(2) { transition-delay: 120ms; }
+.services-grid .animate-on-scroll:nth-child(3) { transition-delay: 240ms; }
+
+.projects-grid .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.projects-grid .animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
+.projects-grid .animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
+.projects-grid .animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
+
+
+/* ----------------------------------------------------------
+   8. SERVICIOS
    ---------------------------------------------------------- */
 .services-grid {
   display: grid;
@@ -657,12 +650,9 @@ input, select, textarea, button {
 }
 
 @media (min-width: 1024px) {
-  .services-grid {
-    gap: var(--space-4);
-  }
+  .services-grid { gap: var(--space-4); }
 }
 
-/* Card individual de servicio */
 .service-card {
   background-color: var(--color-white);
   border-radius: var(--radius-md);
@@ -671,17 +661,44 @@ input, select, textarea, button {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  transition: 
+  position: relative;
+  overflow: hidden;
+  transition:
     transform var(--transition-base),
     box-shadow var(--transition-base);
+  /* Acelera composición en GPU para el hover */
+  will-change: transform;
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   box-shadow: var(--shadow-lg);
 }
 
-/* Wrapper del icono */
+/* Efecto shine en hover para service-card */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 700ms var(--ease-out-expo);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.service-card:hover::before {
+  left: 140%;
+}
+
 .service-card__icon-wrapper {
   width: 64px;
   height: 64px;
@@ -691,6 +708,11 @@ input, select, textarea, button {
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-3);
+  transition: transform var(--transition-bounce);
+}
+
+.service-card:hover .service-card__icon-wrapper {
+  transform: scale(1.1);
 }
 
 .service-card__icon {
@@ -704,7 +726,6 @@ input, select, textarea, button {
   color: var(--color-text);
 }
 
-/* Lista de beneficios */
 .service-card__list {
   flex-grow: 1;
   display: flex;
@@ -729,7 +750,6 @@ input, select, textarea, button {
   margin-top: 2px;
 }
 
-/* CTA de la card */
 .service-card__cta {
   margin-top: auto;
   width: 100%;
@@ -738,10 +758,7 @@ input, select, textarea, button {
 
 
 /* ----------------------------------------------------------
-   8. COMPONENTE: GALERÍA DE PROYECTOS
-   - Grid responsive (1→2→4 columnas)
-   - Overlay con info al hacer hover
-   - Zoom suave en imagen
+   9. PROYECTOS
    ---------------------------------------------------------- */
 .projects-grid {
   display: grid;
@@ -750,18 +767,13 @@ input, select, textarea, button {
 }
 
 @media (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .projects-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Card de proyecto */
 .project-card {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -780,13 +792,13 @@ input, select, textarea, button {
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-slow);
+  will-change: transform;
 }
 
 .project-card:hover .project-card__image {
   transform: scale(1.08);
 }
 
-/* Tag de categoría */
 .project-card__tag {
   position: absolute;
   top: var(--space-2);
@@ -802,11 +814,10 @@ input, select, textarea, button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* Overlay verde con info */
 .project-card__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(53, 122, 62, 0.85);
+  background: rgba(53, 122, 62, 0.88);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -831,7 +842,7 @@ input, select, textarea, button {
   color: rgba(255, 255, 255, 0.9);
   font-size: var(--text-sm);
   transform: translateY(12px);
-  transition: transform var(--transition-base) 75ms;
+  transition: transform var(--transition-base) 80ms;
 }
 
 .project-card:hover .project-card__name,
@@ -841,10 +852,7 @@ input, select, textarea, button {
 
 
 /* ----------------------------------------------------------
-   9. COMPONENTE: SECCIÓN COTIZACIÓN
-   - Fondo verde suave con patrón decorativo
-   - Layout dividido: imagen + formulario
-   - Validación visual de campos
+   10. COTIZACIÓN
    ---------------------------------------------------------- */
 .section--quote {
   background-color: var(--color-primary-light);
@@ -852,7 +860,6 @@ input, select, textarea, button {
   overflow: hidden;
 }
 
-/* Patrón de puntos decorativo */
 .section__pattern {
   position: absolute;
   inset: 0;
@@ -862,7 +869,6 @@ input, select, textarea, button {
   pointer-events: none;
 }
 
-/* Tarjeta contenedora del formulario */
 .quote-card {
   background-color: var(--color-white);
   border-radius: var(--radius-xl);
@@ -874,12 +880,9 @@ input, select, textarea, button {
 }
 
 @media (min-width: 768px) {
-  .quote-card {
-    flex-direction: row;
-  }
+  .quote-card { flex-direction: row; }
 }
 
-/* Panel visual izquierdo */
 .quote-card__visual {
   position: relative;
   min-height: 240px;
@@ -908,16 +911,13 @@ input, select, textarea, button {
   background: linear-gradient(to right, transparent, var(--color-white));
 }
 
-/* Panel del formulario */
 .quote-card__form-wrapper {
   padding: var(--space-4);
   flex: 1;
 }
 
 @media (min-width: 1024px) {
-  .quote-card__form-wrapper {
-    padding: var(--space-5);
-  }
+  .quote-card__form-wrapper { padding: var(--space-5); }
 }
 
 .quote-card__header {
@@ -936,10 +936,7 @@ input, select, textarea, button {
 
 
 /* ----------------------------------------------------------
-   10. COMPONENTE: FORMULARIO
-   - Inputs estilizados con estados focus/error/valid
-   - Grid de 2 columnas para nombre+teléfono
-   - Select custom con icono
+   11. FORMULARIO
    ---------------------------------------------------------- */
 .form {
   display: flex;
@@ -954,21 +951,21 @@ input, select, textarea, button {
 }
 
 @media (min-width: 480px) {
-  .form__row {
-    grid-template-columns: 1fr 1fr;
-  }
+  .form__row { grid-template-columns: 1fr 1fr; }
 }
 
 .form__group {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;
 }
 
 .form__label {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-primary);
+  transition: color var(--transition-fast);
 }
 
 .form__optional {
@@ -977,7 +974,6 @@ input, select, textarea, button {
   font-size: var(--text-xs);
 }
 
-/* Input base */
 .form__input {
   width: 100%;
   padding: 14px 16px;
@@ -986,43 +982,57 @@ input, select, textarea, button {
   border-radius: var(--radius-sm);
   font-size: var(--text-base);
   color: var(--color-text);
-  transition: 
+  transition:
     border-color var(--transition-base),
-    box-shadow var(--transition-base);
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
 }
 
 .form__input::placeholder {
   color: var(--color-earth-light);
 }
 
-/* Estado Focus */
 .form__input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(53, 122, 62, 0.15);
+  box-shadow: 0 0 0 3px rgba(53, 122, 62, 0.12);
   outline: none;
 }
 
-/* Estado Error (añadido vía JS) */
+/* Estado Error con animación shake */
 .form__input--error {
   border-color: #dc2626;
+  background-color: #fef2f2;
+  animation: shake 0.45s var(--ease-out-expo);
 }
 
 .form__input--error:focus {
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
 }
 
-/* Estado Valid (añadido vía JS) */
+/* Estado Valid - éxito visual fluido */
 .form__input--valid {
   border-color: var(--color-primary);
+  background-color: #f0fdf4;
 }
 
-/* Textarea */
+.form__input--valid:focus {
+  box-shadow: 0 0 0 3px rgba(53, 122, 62, 0.15);
+}
+
+/* Animación shake suave (solo transform, GPU-accelerated) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
 .form__textarea {
   resize: vertical;
   min-height: 120px;
 }
 
-/* Select custom */
 .form__select-wrapper {
   position: relative;
 }
@@ -1030,7 +1040,7 @@ input, select, textarea, button {
 .form__select {
   appearance: none;
   cursor: pointer;
-  padding-right: 40px; /* Espacio para icono */
+  padding-right: 40px;
 }
 
 .form__select-icon {
@@ -1043,20 +1053,29 @@ input, select, textarea, button {
   font-size: 1.25rem;
 }
 
-/* Mensaje de error */
 .form__error {
   font-size: var(--text-xs);
   color: #dc2626;
   min-height: 1.2em;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast);
 }
 
-/* Botón de envío */
+.form__input--error + .form__error,
+.form__input--error ~ .form__error {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .btn--submit {
   gap: var(--space-1);
   margin-top: var(--space-1);
 }
 
-/* Nota de privacidad */
 .form__privacy {
   display: flex;
   align-items: center;
@@ -1073,10 +1092,7 @@ input, select, textarea, button {
 
 
 /* ----------------------------------------------------------
-   11. COMPONENTE: FOOTER
-   - 4 columnas en desktop
-   - Fondo tierra oscuro (#71300F)
-   - Bloque especial: Consejos de Jardinería
+   12. FOOTER
    ---------------------------------------------------------- */
 .footer {
   background-color: var(--color-earth-dark);
@@ -1093,18 +1109,13 @@ input, select, textarea, button {
 }
 
 @media (min-width: 768px) {
-  .footer__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .footer__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1024px) {
-  .footer__grid {
-    grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
-  }
+  .footer__grid { grid-template-columns: 1.2fr 0.8fr 1fr 1fr; }
 }
 
-/* Columna marca */
 .footer__brand {
   display: flex;
   flex-direction: column;
@@ -1114,7 +1125,7 @@ input, select, textarea, button {
 .footer__logo {
   height: 52px;
   width: auto;
-  filter: brightness(0) invert(1); /* Versión blanca del logo */
+  filter: brightness(0) invert(1);
   opacity: 0.95;
 }
 
@@ -1125,14 +1136,12 @@ input, select, textarea, button {
   max-width: 280px;
 }
 
-/* Headings del footer */
 .footer__heading {
   font-size: var(--text-lg);
   color: var(--color-white);
   margin-bottom: var(--space-3);
 }
 
-/* Listas de links */
 .footer__list {
   display: flex;
   flex-direction: column;
@@ -1142,7 +1151,7 @@ input, select, textarea, button {
 .footer__link {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.75);
-  transition: 
+  transition:
     color var(--transition-base),
     padding-left var(--transition-base);
 }
@@ -1152,7 +1161,6 @@ input, select, textarea, button {
   padding-left: 4px;
 }
 
-/* Items de contacto con iconos */
 .footer__contact-item {
   display: flex;
   align-items: flex-start;
@@ -1168,7 +1176,6 @@ input, select, textarea, button {
   margin-top: 2px;
 }
 
-/* Tarjeta de consejos (Tip Card) */
 .tip-card {
   background-color: rgba(168, 194, 147, 0.15);
   border: 1px solid rgba(168, 194, 147, 0.3);
@@ -1199,7 +1206,6 @@ input, select, textarea, button {
   line-height: 1.6;
 }
 
-/* Barra inferior */
 .footer__bottom {
   border-top: 1px solid rgba(155, 90, 43, 0.4);
   padding-top: var(--space-3);
@@ -1221,7 +1227,6 @@ input, select, textarea, button {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Iconos sociales */
 .footer__socials {
   display: flex;
   gap: var(--space-2);
@@ -1236,63 +1241,53 @@ input, select, textarea, button {
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.8);
-  transition: 
+  transition:
     background-color var(--transition-base),
-    color var(--transition-base);
+    color var(--transition-base),
+    transform var(--transition-fast);
 }
 
 .footer__social:hover {
   background-color: var(--color-accent);
   color: var(--color-white);
+  transform: translateY(-2px);
 }
 
 
 /* ----------------------------------------------------------
-   12. ANIMACIONES GLOBALES
-   Clases utilitarias para animaciones de scroll
+   13. WHATSAPP FLOTANTE
    ---------------------------------------------------------- */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: 
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-.animate-on-scroll--visible {
-  opacity: 1;
-  transform: translateY(0);
-}¿
-
-/* Stagger para elementos hijos */
-.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
-.animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
-.animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
-.animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
-
-
 .whatsapp-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
   background-color: #25d366;
   color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   z-index: 1000;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform var(--transition-bounce),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .whatsapp-btn:hover {
   background-color: #128c7e;
-  transform: scale(1.1);
+  transform: scale(1.12) rotate(-5deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-btn:active {
+  transform: scale(0.95);
 }
 
 .whatsapp-btn svg {
-  fill: currentColor;
+  width: 28px;
+  height: 28px;
 }

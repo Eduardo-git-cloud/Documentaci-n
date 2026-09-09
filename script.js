@@ -1,18 +1,12 @@
 /**
  * ============================================================
- * PULMÓN VERDE - Módulo JavaScript Principal
- * ============================================================
- * Funcionalidades:
- *  1. Navbar sticky con detección de scroll
- *  2. Menú móvil hamburger (toggle + cierre automático)
- *  3. Animaciones de entrada al scroll (Intersection Observer)
- *  4. Validación de formulario de cotización
- *  5. Smooth scroll para navegación interna
+ * PULMÓN VERDE - Módulo JavaScript Principal v2.0
+ * Optimizado para 60fps, animaciones GPU-accelerated y
+ * validación reactiva con feedback visual premium.
  * ============================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicializar todos los módulos
   initNavbar();
   initMobileMenu();
   initScrollAnimations();
@@ -23,27 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ----------------------------------------------------------
    MÓDULO 1: NAVBAR STICKY
-   Detecta scroll > 50px y añade clase para fondo sólido
+   requestAnimationFrame para máximo rendimiento (60fps).
    ---------------------------------------------------------- */
 function initNavbar() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
 
-  // Umbral de scroll para activar el estado "scrolled"
   const SCROLL_THRESHOLD = 50;
-
-  // Función optimizada con requestAnimationFrame
   let ticking = false;
 
   function updateNavbar() {
     const scrollY = window.scrollY || window.pageYOffset;
-
-    if (scrollY > SCROLL_THRESHOLD) {
-      navbar.classList.add('navbar--scrolled');
-    } else {
-      navbar.classList.remove('navbar--scrolled');
-    }
-
+    navbar.classList.toggle('navbar--scrolled', scrollY > SCROLL_THRESHOLD);
     ticking = false;
   }
 
@@ -57,8 +42,7 @@ function initNavbar() {
 
 
 /* ----------------------------------------------------------
-   MÓDULO 2: MENÚ MÓVIL (HAMBURGER)
-   Abre/cierra menú lateral y gestiona atributos ARIA
+   MÓDULO 2: MENÚ MÓVIL
    ---------------------------------------------------------- */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('menuToggle');
@@ -67,29 +51,17 @@ function initMobileMenu() {
 
   const mobileLinks = mobileMenu.querySelectorAll('.mobile-menu__link, .mobile-menu__cta');
 
-  /**
-   * Alterna el estado abierto/cerrado del menú móvil
-   */
   function toggleMenu() {
     const isOpen = mobileMenu.classList.toggle('mobile-menu--open');
-
-    // Actualizar atributos ARIA para accesibilidad
     toggleBtn.setAttribute('aria-expanded', isOpen);
     mobileMenu.setAttribute('aria-hidden', !isOpen);
 
-    // Cambiar icono del botón
     const icon = toggleBtn.querySelector('.material-symbols-outlined');
-    if (icon) {
-      icon.textContent = isOpen ? 'close' : 'menu';
-    }
+    if (icon) icon.textContent = isOpen ? 'close' : 'menu';
 
-    // Bloquear scroll del body cuando el menú está abierto
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
-  /**
-   * Cierra el menú móvil explícitamente
-   */
   function closeMenu() {
     mobileMenu.classList.remove('mobile-menu--open');
     toggleBtn.setAttribute('aria-expanded', 'false');
@@ -101,15 +73,9 @@ function initMobileMenu() {
     document.body.style.overflow = '';
   }
 
-  // Event listener del botón hamburger
   toggleBtn.addEventListener('click', toggleMenu);
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-  // Cerrar menú al hacer click en cualquier link del menú móvil
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Cerrar menú al redimensionar a desktop (>=768px)
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 768 && mobileMenu.classList.contains('mobile-menu--open')) {
       closeMenu();
@@ -119,39 +85,38 @@ function initMobileMenu() {
 
 
 /* ----------------------------------------------------------
-   MÓDULO 3: ANIMACIONES DE ENTRADA AL SCROLL
-   Usa IntersectionObserver para detectar elementos visibles
+   MÓDULO 3: ANIMACIONES DE ENTRADA POR SCROLL
+   IntersectionObserver optimizado con rootMargin negativo
+   para iniciar la animación antes de que el elemento sea 100%
+   visible. Solo usa transform y opacity (GPU layers).
    ---------------------------------------------------------- */
 function initScrollAnimations() {
-  // Seleccionar elementos que queremos animar
-  const animatedElements = document.querySelectorAll(
-    '.service-card, .project-card, .section__header, .quote-card'
-  );
-
+  const animatedElements = document.querySelectorAll('[data-animate]');
   if (animatedElements.length === 0) return;
 
-  // Añadir clase base de animación a cada elemento
-  animatedElements.forEach(el => {
-    el.classList.add('animate-on-scroll');
-  });
+  // Aplicar clase base de animación a cada elemento
+  animatedElements.forEach(el => el.classList.add('animate-on-scroll'));
 
-  /**
-   * IntersectionObserver: detecta cuando un elemento entra al viewport
-   * rootMargin: inicia la animación 50px antes de que sea visible
-   * threshold: dispara cuando al menos 10% del elemento es visible
-   */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // Añadir will-change momentáneamente para optimizar composición
+        entry.target.style.willChange = 'transform, opacity';
         entry.target.classList.add('animate-on-scroll--visible');
 
-        // Dejar de observar una vez animado (one-shot)
+        // Liberar will-change después de la transición para ahorrar GPU
+        entry.target.addEventListener('transitionend', () => {
+          entry.target.style.willChange = 'auto';
+        }, { once: true });
+
         observer.unobserve(entry.target);
       }
     });
   }, {
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
+    // rootMargin negativo: dispara cuando el elemento está entrando
+    // al viewport (150px antes de ser completamente visible)
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.08
   });
 
   animatedElements.forEach(el => observer.observe(el));
@@ -160,13 +125,15 @@ function initScrollAnimations() {
 
 /* ----------------------------------------------------------
    MÓDULO 4: VALIDACIÓN DE FORMULARIO
-   Validación en tiempo real + submit con feedback visual
+   Validación reactiva con regex + feedback visual premium:
+   - Shake suave en errores (GPU: solo translateX)
+   - Transición fluida de colores en estados valid/error
+   - Enfoque automático al primer campo inválido
    ---------------------------------------------------------- */
 function initFormValidation() {
   const form = document.getElementById('quoteForm');
   if (!form) return;
 
-  // Campos a validar
   const fields = {
     name: {
       element: document.getElementById('name'),
@@ -190,51 +157,45 @@ function initFormValidation() {
     }
   };
 
-  /**
-   * Muestra error en un campo específico
-   */
+  function getErrorSpan(input) {
+    return input.closest('.form__group')?.querySelector('.form__error');
+  }
+
   function showError(fieldKey) {
     const field = fields[fieldKey];
     const input = field.element;
-    const errorSpan = input.parentElement.querySelector('.form__error');
+    const errorSpan = getErrorSpan(input);
 
-    input.classList.add('form__input--error');
     input.classList.remove('form__input--valid');
+    input.classList.add('form__input--error');
 
     if (errorSpan) {
       errorSpan.textContent = field.message;
+      errorSpan.style.opacity = '1';
+      errorSpan.style.transform = 'translateY(0)';
     }
   }
 
-  /**
-   * Limpia el error de un campo
-   */
   function clearError(fieldKey) {
     const field = fields[fieldKey];
     const input = field.element;
-    const errorSpan = input.parentElement.querySelector('.form__error');
+    const errorSpan = getErrorSpan(input);
 
     input.classList.remove('form__input--error');
 
     if (errorSpan) {
       errorSpan.textContent = '';
+      errorSpan.style.opacity = '0';
+      errorSpan.style.transform = 'translateY(-4px)';
     }
   }
 
-  /**
-   * Marca un campo como válido
-   */
   function markValid(fieldKey) {
-    const field = fields[fieldKey];
-    const input = field.element;
-
+    const input = fields[fieldKey].element;
     input.classList.remove('form__input--error');
     input.classList.add('form__input--valid');
   }
 
-  /**
-   * Valida un campo individual
-   */
   function validateField(fieldKey) {
     const field = fields[fieldKey];
     const value = field.element.value;
@@ -249,50 +210,49 @@ function initFormValidation() {
     }
   }
 
-  // Validación en tiempo real (al salir del campo - blur)
+  // Validación en blur (cuando el usuario sale del campo)
   Object.keys(fields).forEach(key => {
     const input = fields[key].element;
     if (!input) return;
 
     input.addEventListener('blur', () => {
-      // Solo validar si el usuario ya escribió algo
       if (input.value.trim() !== '') {
         validateField(key);
       }
     });
 
-    // Limpiar error al empezar a escribir de nuevo
+    // Limpiar error al escribir de nuevo
     input.addEventListener('input', () => {
-      clearError(key);
+      if (input.classList.contains('form__input--error')) {
+        clearError(key);
+      }
     });
   });
 
-  // Validación al enviar el formulario
+  // Submit del formulario
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     let isValid = true;
+    let firstInvalidKey = null;
 
-    // Validar todos los campos obligatorios
     Object.keys(fields).forEach(key => {
       if (!validateField(key)) {
         isValid = false;
+        if (!firstInvalidKey) firstInvalidKey = key;
       }
     });
 
     if (isValid) {
-      // ÉXITO: Simular envío (aquí conectarías con tu backend)
       const submitBtn = form.querySelector('.btn--submit');
-      const originalText = submitBtn.innerHTML;
+      const originalHTML = submitBtn.innerHTML;
 
-      // Feedback visual de carga
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
         <span class="material-symbols-outlined" aria-hidden="true">sync</span>
         Enviando...
       `;
 
-      // Simular latencia de red (1.5s)
       setTimeout(() => {
         submitBtn.innerHTML = `
           <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
@@ -300,14 +260,12 @@ function initFormValidation() {
         `;
         submitBtn.style.backgroundColor = '#357A3E';
 
-        // Resetear formulario después de mostrar éxito
         setTimeout(() => {
           form.reset();
           submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
+          submitBtn.innerHTML = originalHTML;
           submitBtn.style.backgroundColor = '';
 
-          // Limpiar estados de validación
           Object.keys(fields).forEach(key => {
             fields[key].element.classList.remove('form__input--valid');
           });
@@ -315,10 +273,9 @@ function initFormValidation() {
       }, 1500);
 
     } else {
-      // ERROR: Enfocar el primer campo inválido
-      const firstInvalid = form.querySelector('.form__input--error');
-      if (firstInvalid) {
-        firstInvalid.focus();
+      // Enfocar el primer campo inválido para accesibilidad
+      if (firstInvalidKey) {
+        fields[firstInvalidKey].element.focus();
       }
     }
   });
@@ -327,19 +284,15 @@ function initFormValidation() {
 
 /* ----------------------------------------------------------
    MÓDULO 5: SMOOTH SCROLL
-   Navegación suave entre secciones con offset para navbar
+   Offset dinámico para el navbar sticky.
    ---------------------------------------------------------- */
 function initSmoothScroll() {
-  // Seleccionar todos los links que apuntan a anclas internas
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
-
-  const NAVBAR_HEIGHT = 80; // Altura del navbar sticky
+  const NAVBAR_HEIGHT = 80;
 
   anchorLinks.forEach(link => {
     link.addEventListener('click', (event) => {
       const href = link.getAttribute('href');
-
-      // Ignorar links vacíos o solo "#"
       if (!href || href === '#') return;
 
       const target = document.querySelector(href);
@@ -347,7 +300,6 @@ function initSmoothScroll() {
 
       event.preventDefault();
 
-      // Calcular posición con offset del navbar
       const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
 
       window.scrollTo({
@@ -355,22 +307,13 @@ function initSmoothScroll() {
         behavior: 'smooth'
       });
 
-      // Actualizar link activo en navbar
       updateActiveNavLink(href);
     });
   });
 
-  /**
-   * Actualiza visualmente el link activo en la navegación desktop
-   */
   function updateActiveNavLink(activeHref) {
-    const navLinks = document.querySelectorAll('.navbar__link');
-
-    navLinks.forEach(link => {
-      link.classList.remove('navbar__link--active');
-      if (link.getAttribute('href') === activeHref) {
-        link.classList.add('navbar__link--active');
-      }
+    document.querySelectorAll('.navbar__link').forEach(link => {
+      link.classList.toggle('navbar__link--active', link.getAttribute('href') === activeHref);
     });
   }
 }

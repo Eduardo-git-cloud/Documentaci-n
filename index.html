@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- 
-  ============================================================
-  PULMÓN VERDE - Landing Page Profesional
-  ============================================================
-  Estructura HTML5 semántica, optimizada para SEO y accesibilidad.
-  Separa presentación (styles.css) y comportamiento (script.js).
-  ============================================================
--->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,37 +8,25 @@
   <meta name="author" content="Pulmón Verde">
   <meta name="theme-color" content="#357A3E">
 
-  <!-- Open Graph / Redes Sociales -->
   <meta property="og:title" content="Pulmón Verde - Expertos en Paisajismo">
   <meta property="og:description" content="Diseño de jardines, riego automático y mantenimiento integral para hogares y empresas.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/og-image.jpg">
 
   <title>Pulmón Verde | Jardinería, Riego y Paisajismo Profesional</title>
 
-  <!-- Fuentes: Poppins (Headings) y Montserrat (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
-  <!-- Iconos: Material Symbols -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 
-  <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="styles.css">
 <base target="_blank">
 </head>
 
 <body>
-  <!-- ============================================================
-       HEADER / NAVBAR
-       - Sticky: se mantiene visible al hacer scroll
-       - Glassmorphism: fondo translúcido con blur
-       - Navegación principal con acceso rápido a secciones
-       ============================================================ -->
+  <!-- NAVBAR -->
   <header class="navbar" id="navbar">
     <div class="container navbar__container">
-      <!-- Logo: Pulmón formado por follaje con ave naranja -->
       <a href="#" class="navbar__brand" aria-label="Pulmón Verde - Inicio">
         <img 
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWwzVorD5AsysxxBsH8d1JNrTs-4_2RkkrpojKObN1u4L56Bg6thYz8eYJMHCZPmT2imlVsqkdMKhVm7eZLYtUPPC8fz_ECuEnBzx-eV8-eiDpLMbTfWq7odPZi7QPJcLQNFvDtcioS9caqqUpY1beOZCvUq1eJUi7xIGIDqKhqVFCPGChZGNdvRp_2-TWNnCDCeIJ7X4YAvPgr9pXsLcDg6hCmBxLi30H0nIUfiTUEwa7WFCFMwkgDcQinkn6rJiOnf4" 
@@ -58,7 +38,6 @@
         >
       </a>
 
-      <!-- Menú de navegación desktop -->
       <nav class="navbar__nav" aria-label="Navegación principal">
         <a href="#inicio" class="navbar__link navbar__link--active">Inicio</a>
         <a href="#servicios" class="navbar__link">Servicios</a>
@@ -66,7 +45,6 @@
         <a href="#contacto" class="navbar__link">Contacto</a>
       </nav>
 
-      <!-- CTA Principal Desktop -->
       <div class="navbar__actions">
         <a href="#contacto" class="btn btn--primary">
           Cotizar Ahora
@@ -74,7 +52,6 @@
         </a>
       </div>
 
-      <!-- Botón menú móvil (hamburger) -->
       <button 
         class="navbar__toggle" 
         id="menuToggle"
@@ -86,7 +63,6 @@
       </button>
     </div>
 
-    <!-- Menú móvil deslizable (oculto por defecto) -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <nav class="mobile-menu__nav" aria-label="Navegación móvil">
         <a href="#inicio" class="mobile-menu__link">Inicio</a>
@@ -98,42 +74,28 @@
     </div>
   </header>
 
-  <!-- ============================================================
-       MAIN CONTENT
-       Contenedor semántico principal de la página
-       ============================================================ -->
   <main>
-
-    <!-- ==========================================================
-         SECCIÓN HERO
-         - Pantalla completa con imagen de fondo y overlay verde
-         - Mensaje principal de valor + botones duales de acción
-         ========================================================== -->
+    <!-- HERO -->
     <section class="hero" id="inicio" aria-labelledby="heroTitle">
-      <!-- Capa de fondo: imagen + gradiente oscuro para legibilidad -->
       <div class="hero__background" aria-hidden="true">
         <div class="hero__image"></div>
         <div class="hero__overlay"></div>
       </div>
 
       <div class="container hero__content">
-        <!-- Badge de confianza -->
         <span class="badge badge--glass">
           Servicios Profesionales de Jardinería
         </span>
 
-        <!-- Titular principal -->
         <h1 id="heroTitle" class="hero__title">
           Transformamos tu Espacio en un <span class="text-accent">Oasis Verde</span>
         </h1>
 
-        <!-- Subtítulo persuasivo -->
         <p class="hero__subtitle">
           Diseño de paisajes, riego inteligente y mantenimiento profesional 
           para hogares y empresas que respiran naturaleza.
         </p>
 
-        <!-- Grupo de botones de acción -->
         <div class="hero__actions">
           <a href="#contacto" class="btn btn--primary btn--large">
             Cotizar Proyecto
@@ -144,20 +106,14 @@
         </div>
       </div>
 
-      <!-- Indicador scroll (animado) -->
       <div class="hero__scroll" aria-hidden="true">
         <span class="hero__scroll-line"></span>
       </div>
     </section>
 
-    <!-- ==========================================================
-         SECCIÓN SERVICIOS
-         - Grid de 3 cards: Diseño, Riego, Mantenimiento
-         - Cada card: icono, título, lista de beneficios, CTA
-         ========================================================== -->
+    <!-- SERVICIOS -->
     <section class="section section--white" id="servicios" aria-labelledby="servicesTitle">
       <div class="container">
-        <!-- Encabezado de sección -->
         <header class="section__header">
           <h2 id="servicesTitle" class="section__title">Nuestros Servicios</h2>
           <p class="section__subtitle">
@@ -165,11 +121,8 @@
           </p>
         </header>
 
-        <!-- Grid de servicios -->
         <div class="services-grid">
-
-          <!-- Card 1: Diseño de Jardines -->
-          <article class="service-card">
+          <article class="service-card" data-animate>
             <div class="service-card__icon-wrapper">
               <span class="material-symbols-outlined service-card__icon" aria-hidden="true">design_services</span>
             </div>
@@ -197,8 +150,7 @@
             </a>
           </article>
 
-          <!-- Card 2: Riego Automático -->
-          <article class="service-card">
+          <article class="service-card" data-animate>
             <div class="service-card__icon-wrapper">
               <span class="material-symbols-outlined service-card__icon" aria-hidden="true">water_drop</span>
             </div>
@@ -226,8 +178,7 @@
             </a>
           </article>
 
-          <!-- Card 3: Mantenimiento Integral -->
-          <article class="service-card">
+          <article class="service-card" data-animate>
             <div class="service-card__icon-wrapper">
               <span class="material-symbols-outlined service-card__icon" aria-hidden="true">yard</span>
             </div>
@@ -254,16 +205,11 @@
               Cotizar este servicio
             </a>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================
-         SECCIÓN PROYECTOS RECIENTES
-         - Galería tipo grid con overlay hover
-         - Tags de categoría y efectos de zoom suave
-         ========================================================== -->
+    <!-- PROYECTOS -->
     <section class="section section--muted" id="proyectos" aria-labelledby="projectsTitle">
       <div class="container">
         <header class="section__header section__header--row">
@@ -278,9 +224,7 @@
         </header>
 
         <div class="projects-grid">
-
-          <!-- Proyecto 1 -->
-          <article class="project-card">
+          <article class="project-card" data-animate>
             <div class="project-card__image-wrapper">
               <img 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkkuirLLP8cVhuLq-x3puuL_jeoDuBPmcwrjXTNf9HaQ3uF3qxGJp4kG1B5Zi-_6pgN0AWbZjOv9iNUfkejGauNB9n2qXoqcHVs7ZO9kldnvhBEmdN9F6IYPG2lsw0MMwQJolZBOhQP9FA-RzUQcePhF_Pc9w0YEpi4GfAeN8dgpuJkfmH0AIsu41pN8a3QSJ5v4xc7qXBEduZdd23l02UcQsfteSAlWsobDqhrqqK9a-q2zE05U1KQA" 
@@ -296,8 +240,7 @@
             </div>
           </article>
 
-          <!-- Proyecto 2 -->
-          <article class="project-card">
+          <article class="project-card" data-animate>
             <div class="project-card__image-wrapper">
               <img 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiJ1Fa4moxBD2hRDpkuSz2soYKoCWUPlwWU_XaG1lQbAeP5CgMT0fGIqKaLXMpRqLtKmLMGkxDVVklWuloBTRfOCh4NEjTaXzV_hjNBwv8QEacWnirVe6cPkDvcoqOpq5N5w5TJ2051cCVKB5M0EA2a3VIkdI6ciipAbafICMC4nCgfNb9IVzOafsjS44_YEQsvVv1G8TqJaygwqcdG6wO7gX4J-QiXVf84rMacdiBFSWqN8EEDDeZMA" 
@@ -313,8 +256,7 @@
             </div>
           </article>
 
-          <!-- Proyecto 3 (placeholder adicional para completar grid) -->
-          <article class="project-card">
+          <article class="project-card" data-animate>
             <div class="project-card__image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80" 
@@ -330,8 +272,7 @@
             </div>
           </article>
 
-          <!-- Proyecto 4 (placeholder adicional) -->
-          <article class="project-card">
+          <article class="project-card" data-animate>
             <div class="project-card__image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80" 
@@ -346,24 +287,16 @@
               </div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================
-         SECCIÓN COTIZACIÓN / FORMULARIO
-         - Layout dividido: imagen decorativa + formulario funcional
-         - Captura de leads con validación visual
-         ========================================================== -->
+    <!-- COTIZACIÓN -->
     <section class="section section--quote" id="contacto" aria-labelledby="quoteTitle">
-      <!-- Patrón decorativo de fondo -->
       <div class="section__pattern" aria-hidden="true"></div>
 
       <div class="container">
-        <div class="quote-card">
-
-          <!-- Panel izquierdo: Imagen visual -->
+        <div class="quote-card" data-animate>
           <div class="quote-card__visual" aria-hidden="true">
             <img 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrVoMRRhBBXlClFIDJoam17nK81-IJD97cFAox3wKFg1N3kW9ctrUlHNJdTBZuitqSA4eNZy66qLDlJdI605AJRoIy-PGipBWdw7sT_WHE5RhiTRH_Q8C4ot2kRNs9TSzgtpbJmBMjAt0XZI7sk9h6GI442QoyX0-VF3yWRUVQQhmfubJeEKONpsTlQEOELc1GYxwt-Oce9eSnNo3aBlgbjOntOm7MmVsGrAXoao-ShiOCtdP7eflfyQ" 
@@ -374,7 +307,6 @@
             <div class="quote-card__gradient"></div>
           </div>
 
-          <!-- Panel derecho: Formulario -->
           <div class="quote-card__form-wrapper">
             <header class="quote-card__header">
               <h2 id="quoteTitle" class="quote-card__title">Solicita tu Cotización Gratis</h2>
@@ -384,7 +316,6 @@
             </header>
 
             <form class="form" id="quoteForm" novalidate>
-              <!-- Fila 1: Nombre + Teléfono -->
               <div class="form__row">
                 <div class="form__group">
                   <label for="name" class="form__label">Nombre completo</label>
@@ -414,7 +345,6 @@
                 </div>
               </div>
 
-              <!-- Fila 2: Email -->
               <div class="form__group">
                 <label for="email" class="form__label">Correo electrónico</label>
                 <input 
@@ -429,7 +359,6 @@
                 <span class="form__error" aria-live="polite"></span>
               </div>
 
-              <!-- Fila 3: Tipo de servicio -->
               <div class="form__group">
                 <label for="service" class="form__label">Tipo de Servicio</label>
                 <div class="form__select-wrapper">
@@ -445,7 +374,6 @@
                 <span class="form__error" aria-live="polite"></span>
               </div>
 
-              <!-- Fila 4: Mensaje -->
               <div class="form__group">
                 <label for="details" class="form__label">Detalles del terreno <span class="form__optional">(opcional)</span></label>
                 <textarea 
@@ -457,13 +385,11 @@
                 ></textarea>
               </div>
 
-              <!-- Botón de envío -->
               <button type="submit" class="btn btn--primary btn--full btn--submit">
                 <span class="btn__text">Enviar Solicitud</span>
                 <span class="material-symbols-outlined btn__icon" aria-hidden="true">send</span>
               </button>
 
-              <!-- Nota de privacidad -->
               <p class="form__privacy">
                 <span class="material-symbols-outlined" aria-hidden="true">lock</span>
                 Tus datos están protegidos. No compartimos tu información con terceros.
@@ -473,19 +399,12 @@
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- ============================================================
-       FOOTER
-       - 4 columnas: Marca, Links, Contacto, Consejos de Jardinería
-       - Fondo tierra oscuro (#71300F) para contraste elegante
-       ============================================================ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-
-        <!-- Columna 1: Marca -->
         <div class="footer__brand">
           <img 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMSwDdGz36tfTNKzoRWXDhBRFq7zZKYExlBfpgQIL_kO3VB9Hiul4b4uuUPL3fmwiIbXfzQf2cGGlu2ALHdlcJnJkfn24Yose_Y348XZXSmDj5xSRxfomDVH6Dm_9e3YrgpWCK4_6C4bOju7rM-tJiNs7vYAjnQGVch1_hvhsSRdLuijnUn7hK7XxLS8KxyzOsR5FuiG3BXe509P13ZZse2D0gML9sAZ8YLQqgwiBiARDbvK5h3MAvEpZOX49t2dKjaYs" 
@@ -501,7 +420,6 @@
           </p>
         </div>
 
-        <!-- Columna 2: Enlaces rápidos -->
         <nav class="footer__nav" aria-label="Enlaces del pie de página">
           <h4 class="footer__heading">Enlaces Rápidos</h4>
           <ul class="footer__list">
@@ -512,7 +430,6 @@
           </ul>
         </nav>
 
-        <!-- Columna 3: Contacto -->
         <div class="footer__contact">
           <h4 class="footer__heading">Contáctanos</h4>
           <ul class="footer__list">
@@ -531,7 +448,6 @@
           </ul>
         </div>
 
-        <!-- Columna 4: Consejos de Jardinería (Bloque especial) -->
         <aside class="footer__tips" aria-labelledby="tipsHeading">
           <h4 id="tipsHeading" class="footer__heading">Consejos del Mes</h4>
           <div class="tip-card">
@@ -543,21 +459,19 @@
             </p>
           </div>
         </aside>
-
       </div>
-<!-- Botón Flotante de WhatsApp -->
-<a href="https://wa.me/569XXXXXXXX?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
-   class="whatsapp-btn" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   aria-label="Contactar por WhatsApp">
-  <!-- Ícono de WhatsApp SVG -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-    <path d="M9 10a0.5.5 0 0 0 1 0V9a0.5.5 0 0 0-.5-.5H9a0.5.5 0 0 0-.5.5v1a5 5 0 0 0 5 5h1a0.5.5 0 0 0 .5-.5v-.5a0.5.5 0 0 0-.5-.5h-1a0.5.5 0 0 0-.5.5" />
-  </svg>
-</a>
-      <!-- Barra inferior: Copyright -->
+
+      <!-- Botón Flotante WhatsApp -->
+      <a href="https://wa.me/569XXXXXXXX?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
+         class="whatsapp-btn" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
+        </svg>
+      </a>
+
       <div class="footer__bottom">
         <p class="footer__copyright">
           © 2026 Pulmón Verde. Todos los derechos reservados.
@@ -574,10 +488,6 @@
     </div>
   </footer>
 
-  <!-- ============================================================
-       SCRIPTS
-       Carga diferida al final del body para no bloquear render
-       ============================================================ -->
   <script src="script.js" defer></script>
 </body>
 </html>
