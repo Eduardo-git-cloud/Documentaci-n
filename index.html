@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- 
+  ============================================================
+  PULMÓN VERDE - Jardinería Profesional, Riego y Paisajismo
+  ============================================================
+  Estructura HTML5 semántica, accesible y optimizada para SEO.
+  Alineada con el Wireframe y el Mapa de Empatía del proyecto.
+  ============================================================
+-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pulmón Verde - Expertos en diseño de jardines, riego automático y mantenimiento integral. Transformamos tu espacio en un oasis verde.">
-  <meta name="keywords" content="jardinería, paisajismo, riego automático, mantenimiento de jardines, diseño de jardines">
+  <meta name="description" content="Pulmón Verde - Expertos en diseño de jardines, riego inteligente y mantenimiento integral. Transformamos tu espacio en un oasis verde sustentable.">
+  <meta name="keywords" content="jardinería profesional, paisajismo sustentable, riego automático, diseño de jardines, mantenimiento de áreas verdes, jardín vertical">
   <meta name="author" content="Pulmón Verde">
   <meta name="theme-color" content="#357A3E">
 
-  <meta property="og:title" content="Pulmón Verde - Expertos en Paisajismo">
-  <meta property="og:description" content="Diseño de jardines, riego automático y mantenimiento integral para hogares y empresas.">
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="Pulmón Verde | Paisajismo, Riego Tecnificado y Jardines">
+  <meta property="og:description" content="Diseño de jardines, riego inteligente y mantenimiento integral para hogares y empresas. Presupuestos formales y transparentes.">
   <meta property="og:type" content="website">
 
-  <title>Pulmón Verde | Jardinería, Riego y Paisajismo Profesional</title>
+  <title>Pulmón Verde | Jardinería Profesional, Riego y Paisajismo Sustentable</title>
 
+  <!-- Fuentes Tipográficas: Poppins (Títulos) y Montserrat (Cuerpo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos: Google Material Symbols Outlined -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 
+  <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="styles.css">
-<base target="_blank">
 </head>
 
 <body>
-  <!-- NAVBAR -->
+  <!-- ============================================================
+       HEADER / NAVBAR
+       ============================================================ -->
   <header class="navbar" id="navbar">
     <div class="container navbar__container">
-      <a href="#" class="navbar__brand" aria-label="Pulmón Verde - Inicio">
+      <!-- Logo Oficial Pulmón Verde -->
+      <a href="#inicio" class="navbar__brand" aria-label="Pulmón Verde - Ir al inicio">
         <img 
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWwzVorD5AsysxxBsH8d1JNrTs-4_2RkkrpojKObN1u4L56Bg6thYz8eYJMHCZPmT2imlVsqkdMKhVm7eZLYtUPPC8fz_ECuEnBzx-eV8-eiDpLMbTfWq7odPZi7QPJcLQNFvDtcioS9caqqUpY1beOZCvUq1eJUi7xIGIDqKhqVFCPGChZGNdvRp_2-TWNnCDCeIJ7X4YAvPgr9pXsLcDg6hCmBxLi30H0nIUfiTUEwa7WFCFMwkgDcQinkn6rJiOnf4" 
-          alt="Logo Pulmón Verde - Pulmón formado por follaje verde con tronco y ave naranja" 
+          alt="Logo Pulmón Verde - Árbol con silueta pulmonar" 
           class="navbar__logo"
           width="160" 
           height="50"
@@ -38,20 +53,27 @@
         >
       </a>
 
-      <nav class="navbar__nav" aria-label="Navegación principal">
+      <!-- Menú de navegación principal (Desktop) -->
+      <nav class="navbar__nav" id="desktopNav" aria-label="Navegación principal">
         <a href="#inicio" class="navbar__link navbar__link--active">Inicio</a>
         <a href="#servicios" class="navbar__link">Servicios</a>
+        <a href="#antes-despues" class="navbar__link">Transformaciones</a>
         <a href="#proyectos" class="navbar__link">Proyectos</a>
+        <a href="#cotizador" class="navbar__link">Cotizador</a>
+        <a href="#proceso" class="navbar__link">Cómo Trabajamos</a>
+        <a href="#testimonios" class="navbar__link">Testimonios</a>
         <a href="#contacto" class="navbar__link">Contacto</a>
       </nav>
 
+      <!-- CTA Principal Desktop -->
       <div class="navbar__actions">
         <a href="#contacto" class="btn btn--primary">
-          Cotizar Ahora
+          <span>Cotizar Ahora</span>
           <span class="material-symbols-outlined btn__icon" aria-hidden="true">arrow_forward</span>
         </a>
       </div>
 
+      <!-- Botón menú móvil (Hamburger) -->
       <button 
         class="navbar__toggle" 
         id="menuToggle"
@@ -63,19 +85,34 @@
       </button>
     </div>
 
+    <!-- Menú móvil desplegable -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <nav class="mobile-menu__nav" aria-label="Navegación móvil">
         <a href="#inicio" class="mobile-menu__link">Inicio</a>
         <a href="#servicios" class="mobile-menu__link">Servicios</a>
+        <a href="#antes-despues" class="mobile-menu__link">Transformaciones</a>
         <a href="#proyectos" class="mobile-menu__link">Proyectos</a>
+        <a href="#cotizador" class="mobile-menu__link">Cotizador Digital</a>
+        <a href="#proceso" class="mobile-menu__link">Cómo Trabajamos</a>
+        <a href="#testimonios" class="mobile-menu__link">Testimonios</a>
+        <a href="#faq" class="mobile-menu__link">Preguntas Frecuentes</a>
         <a href="#contacto" class="mobile-menu__link">Contacto</a>
-        <a href="#contacto" class="btn btn--primary mobile-menu__cta">Cotizar Ahora</a>
+        <a href="#contacto" class="btn btn--primary mobile-menu__cta">
+          <span>Solicitar Cotización</span>
+          <span class="material-symbols-outlined btn__icon" aria-hidden="true">send</span>
+        </a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main-content">
+
+    <!-- ==========================================================
+         SECCIÓN HERO
+         ========================================================== -->
     <section class="hero" id="inicio" aria-labelledby="heroTitle">
       <div class="hero__background" aria-hidden="true">
         <div class="hero__image"></div>
@@ -83,148 +120,302 @@
       </div>
 
       <div class="container hero__content">
-        <span class="badge badge--glass">
-          Servicios Profesionales de Jardinería
-        </span>
+        <!-- Badge de Confianza -->
+        <div class="badge badge--glass">
+          <span class="material-symbols-outlined badge__icon" aria-hidden="true">eco</span>
+          <span>Paisajismo Sustentable & Riego Tecnificado</span>
+        </div>
 
+        <!-- Titular Principal -->
         <h1 id="heroTitle" class="hero__title">
           Transformamos tu Espacio en un <span class="text-accent">Oasis Verde</span>
         </h1>
 
+        <!-- Subtítulo persuasivo -->
         <p class="hero__subtitle">
-          Diseño de paisajes, riego inteligente y mantenimiento profesional 
-          para hogares y empresas que respiran naturaleza.
+          Diseño de paisajes en 3D, riego automático de alta eficiencia y mantenimiento profesional
+          programado para hogares y empresas que respiran naturaleza.
         </p>
 
+        <!-- Botones de Acción -->
         <div class="hero__actions">
-          <a href="#contacto" class="btn btn--primary btn--large">
-            Cotizar Proyecto
+          <a href="#cotizador" class="btn btn--primary btn--large">
+            <span class="material-symbols-outlined btn__icon" aria-hidden="true">calculate</span>
+            <span>Cotizador Digital</span>
           </a>
-          <a href="#servicios" class="btn btn--outline btn--large">
-            Ver Servicios
+          <a href="#proyectos" class="btn btn--outline btn--large">
+            <span>Ver Portafolio</span>
+            <span class="material-symbols-outlined btn__icon" aria-hidden="true">expand_more</span>
           </a>
+        </div>
+
+        <!-- Barra de Estadísticas y Confianza -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat__number">+250</span>
+            <span class="hero-stat__label">Proyectos ejecutados</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__number">40%</span>
+            <span class="hero-stat__label">Ahorro hídrico con riego smart</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__number">10+</span>
+            <span class="hero-stat__label">Años de experiencia</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__number">100%</span>
+            <span class="hero-stat__label">Satisfacción garantizada</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero__scroll" aria-hidden="true">
+      <!-- Indicador animado de scroll -->
+      <a href="#servicios" class="hero__scroll" aria-label="Desplazarse hacia servicios">
         <span class="hero__scroll-line"></span>
-      </div>
+      </a>
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- ==========================================================
+         SECCIÓN SERVICIOS
+         ========================================================== -->
     <section class="section section--white" id="servicios" aria-labelledby="servicesTitle">
       <div class="container">
         <header class="section__header">
-          <h2 id="servicesTitle" class="section__title">Nuestros Servicios</h2>
+          <span class="section__badge">Soluciones Especializadas</span>
+          <h2 id="servicesTitle" class="section__title">Nuestros Servicios Profesionales</h2>
           <p class="section__subtitle">
-            Soluciones integrales para que tu jardín luzca siempre espectacular
+            Combinamos técnica agronómica, tecnología de automatización y diseño arquitectónico para espacios vivos duraderos.
           </p>
         </header>
 
         <div class="services-grid">
-          <article class="service-card" data-animate>
+
+          <!-- Card 1: Diseño de Jardines -->
+          <article class="service-card">
             <div class="service-card__icon-wrapper">
               <span class="material-symbols-outlined service-card__icon" aria-hidden="true">design_services</span>
             </div>
-            <h3 class="service-card__title">Diseño de Jardines</h3>
+            <span class="service-card__chip">Creatividad & Estilo</span>
+            <h3 class="service-card__title">Diseño de Jardines & Paisajismo</h3>
+            <p class="service-card__desc">
+              Creamos conceptos personalizados adaptados al microclima de tu terreno con visualización 3D previa.
+            </p>
             <ul class="service-card__list">
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Proyectos personalizados en 3D
+                Proyectos y planos 3D personalizados
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Selección de especies autóctonas
+                Selección de especies autóctonas resistentes
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Optimización de espacios exteriores
+                Senderos, rocallas y optimización de espacios
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Iluminación paisajística integrada
+                Iluminación paisajística LED integrada
               </li>
             </ul>
-            <a href="#contacto" class="btn btn--secondary service-card__cta">
-              Cotizar este servicio
+            <a href="#contacto" class="btn btn--secondary service-card__cta" data-service-select="diseno">
+              <span>Cotizar Diseño</span>
+              <span class="material-symbols-outlined btn__icon" aria-hidden="true">arrow_forward</span>
             </a>
           </article>
 
-          <article class="service-card" data-animate>
+          <!-- Card 2: Riego Automático -->
+          <article class="service-card service-card--featured">
+            <div class="service-card__badge-ribbon">Más Solicitado</div>
             <div class="service-card__icon-wrapper">
               <span class="material-symbols-outlined service-card__icon" aria-hidden="true">water_drop</span>
             </div>
-            <h3 class="service-card__title">Riego Automático</h3>
+            <span class="service-card__chip">Eficiencia Hídrica</span>
+            <h3 class="service-card__title">Riego Automático Inteligente</h3>
+            <p class="service-card__desc">
+              Sistemas de aspersión y goteo tecnificado con sensores meteorológicos y control desde smartphone.
+            </p>
             <ul class="service-card__list">
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Instalación de sistemas inteligentes
+                Ahorro de hasta 40% en consumo de agua
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Ahorro de hasta 40% de agua
+                Programadores inteligentes con conectividad WiFi
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Mantenimiento de tuberías y aspersores
+                Sensores de humedad y corte por lluvia
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Programación estacional automática
+                Reparación y mantenimiento de tuberías y electroválvulas
               </li>
             </ul>
-            <a href="#contacto" class="btn btn--secondary service-card__cta">
-              Cotizar este servicio
+            <a href="#contacto" class="btn btn--primary service-card__cta" data-service-select="riego">
+              <span>Cotizar Sistema de Riego</span>
+              <span class="material-symbols-outlined btn__icon" aria-hidden="true">arrow_forward</span>
             </a>
           </article>
 
-          <article class="service-card" data-animate>
+          <!-- Card 3: Mantenimiento Integral -->
+          <article class="service-card">
             <div class="service-card__icon-wrapper">
               <span class="material-symbols-outlined service-card__icon" aria-hidden="true">yard</span>
             </div>
+            <span class="service-card__chip">Tranquilidad Total</span>
             <h3 class="service-card__title">Mantenimiento Integral</h3>
+            <p class="service-card__desc">
+              Planes periódicos con fechas fijas, herramientas técnicas y supervisión constante para un jardín impecable.
+            </p>
             <ul class="service-card__list">
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Poda profesional y limpieza de áreas
+                Poda estética y sanitaria especializada
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Control de plagas 100% ecológico
+                Control fitosanitario y plagas 100% ecológico
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Fertilización orgánica programada
+                Fertilización estacional y aireación de césped
               </li>
               <li class="service-card__item">
                 <span class="material-symbols-outlined service-card__bullet" aria-hidden="true">check_circle</span>
-                Corte de césped y bordes perfectos
+                Corte de césped con perfilado de bordes perfecto
               </li>
             </ul>
-            <a href="#contacto" class="btn btn--secondary service-card__cta">
-              Cotizar este servicio
+            <a href="#contacto" class="btn btn--secondary service-card__cta" data-service-select="mantenimiento">
+              <span>Cotizar Mantenimiento</span>
+              <span class="material-symbols-outlined btn__icon" aria-hidden="true">arrow_forward</span>
             </a>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- PROYECTOS -->
-    <section class="section section--muted" id="proyectos" aria-labelledby="projectsTitle">
+    <!-- ==========================================================
+         SECCIÓN ANTES Y DESPUÉS (SLIDER INTERACTIVO)
+         ========================================================== -->
+    <section class="section section--muted" id="antes-despues" aria-labelledby="comparisonTitle">
       <div class="container">
-        <header class="section__header section__header--row">
-          <div>
-            <h2 id="projectsTitle" class="section__title">Proyectos Recientes</h2>
-            <p class="section__subtitle">Inspiración natural materializada por nuestros expertos</p>
-          </div>
-          <a href="#" class="link link--accent">
-            Ver galería completa
-            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-          </a>
+        <header class="section__header">
+          <span class="section__badge">Resultados Comprobables</span>
+          <h2 id="comparisonTitle" class="section__title">Transformaciones que Hablan por Sí Mismas</h2>
+          <p class="section__subtitle">
+            Arrastra el control deslizante central para comparar el estado original y el resultado final con Pulmón Verde.
+          </p>
         </header>
 
-        <div class="projects-grid">
-          <article class="project-card" data-animate>
+        <div class="comparison-container">
+          <div class="comparison-card" id="comparisonCard">
+            <!-- Imagen 'Después' (Fondo base) -->
+            <div class="comparison-card__image-wrapper comparison-card__image-wrapper--after">
+              <img 
+                src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&q=80" 
+                alt="Jardín completamente transformado: verde, ordenado y con vegetación exuberante" 
+                class="comparison-card__img"
+                loading="lazy"
+              >
+              <span class="comparison-badge comparison-badge--after">Después (Pulmón Verde)</span>
+            </div>
+
+            <!-- Imagen 'Antes' (Capa recortada superior) -->
+            <div class="comparison-card__image-wrapper comparison-card__image-wrapper--before" id="beforeImageWrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?w=1200&q=80" 
+                alt="Terreno descuidado antes de la intervención paisajística" 
+                class="comparison-card__img"
+                loading="lazy"
+              >
+              <span class="comparison-badge comparison-badge--before">Antes (Terreno Inicial)</span>
+            </div>
+
+            <!-- Manilla de arrastre divisoria -->
+            <div class="comparison-card__handle" id="sliderHandle" role="slider" aria-label="Control comparador antes y después" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+              <div class="comparison-card__handle-line"></div>
+              <div class="comparison-card__handle-button">
+                <span class="material-symbols-outlined" aria-hidden="true">drag_indicator</span>
+              </div>
+              <div class="comparison-card__handle-line"></div>
+            </div>
+          </div>
+
+          <!-- Ficha de resumen del proyecto transformado -->
+          <div class="comparison-summary">
+            <div class="comparison-summary__item">
+              <span class="material-symbols-outlined comparison-summary__icon" aria-hidden="true">schedule</span>
+              <div>
+                <strong>Tiempo de ejecución:</strong>
+                <p>14 días hábiles</p>
+              </div>
+            </div>
+            <div class="comparison-summary__item">
+              <span class="material-symbols-outlined comparison-summary__icon" aria-hidden="true">water_drop</span>
+              <div>
+                <strong>Optimización de riego:</strong>
+                <p>-42% gasto de agua mensual</p>
+              </div>
+            </div>
+            <div class="comparison-summary__item">
+              <span class="material-symbols-outlined comparison-summary__icon" aria-hidden="true">verified</span>
+              <div>
+                <strong>Garantía post-entrega:</strong>
+                <p>6 meses de cobertura botánica</p>
+              </div>
+            </div>
+            <div class="comparison-summary__item">
+              <a href="#contacto" class="btn btn--primary btn--full">
+                <span>Quiero transformar mi jardín</span>
+                <span class="material-symbols-outlined btn__icon" aria-hidden="true">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN PROYECTOS RECIENTES (PORTAFOLIO)
+         ========================================================== -->
+    <section class="section section--white" id="proyectos" aria-labelledby="projectsTitle">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Portafolio Visible</span>
+          <h2 id="projectsTitle" class="section__title">Nuestros Proyectos Recientes</h2>
+          <p class="section__subtitle">
+            Conoce algunos de los jardines y espacios verdes que hemos transformado en la región.
+          </p>
+        </header>
+
+        <!-- Filtros por Categoría (Tabs) -->
+        <div class="portfolio-filters" role="tablist" aria-label="Filtros de proyectos">
+          <button class="portfolio-filter portfolio-filter--active" data-filter="all" role="tab" aria-selected="true">
+            Todos los Proyectos
+          </button>
+          <button class="portfolio-filter" data-filter="residencial" role="tab" aria-selected="false">
+            Residencial
+          </button>
+          <button class="portfolio-filter" data-filter="corporativo" role="tab" aria-selected="false">
+            Corporativo
+          </button>
+          <button class="portfolio-filter" data-filter="urbano" role="tab" aria-selected="false">
+            Urbano & Vertical
+          </button>
+          <button class="portfolio-filter" data-filter="riego" role="tab" aria-selected="false">
+            Riego Tecnificado
+          </button>
+        </div>
+
+        <!-- Grid de 6 Proyectos -->
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- Proyecto 1: Jardín Residencial Minimalista -->
+          <article class="project-card" data-category="residencial">
             <div class="project-card__image-wrapper">
               <img 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkkuirLLP8cVhuLq-x3puuL_jeoDuBPmcwrjXTNf9HaQ3uF3qxGJp4kG1B5Zi-_6pgN0AWbZjOv9iNUfkejGauNB9n2qXoqcHVs7ZO9kldnvhBEmdN9F6IYPG2lsw0MMwQJolZBOhQP9FA-RzUQcePhF_Pc9w0YEpi4GfAeN8dgpuJkfmH0AIsu41pN8a3QSJ5v4xc7qXBEduZdd23l02UcQsfteSAlWsobDqhrqqK9a-q2zE05U1KQA" 
@@ -234,13 +425,17 @@
               >
               <span class="project-card__tag">Residencial</span>
               <div class="project-card__overlay">
-                <h4 class="project-card__name">Jardín Minimalista Norte</h4>
-                <p class="project-card__desc">Diseño y ejecución integral</p>
+                <div class="project-card__content">
+                  <span class="project-card__meta">Superficie: 180 m²</span>
+                  <h3 class="project-card__name">Jardín Residencial Minimalista</h3>
+                  <p class="project-card__desc">Diseño geométrico con senderos en piedra laja, grama fina y riego automatizado oculto.</p>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="project-card" data-animate>
+          <!-- Proyecto 2: Complejo Empresarial Sur -->
+          <article class="project-card" data-category="corporativo">
             <div class="project-card__image-wrapper">
               <img 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiJ1Fa4moxBD2hRDpkuSz2soYKoCWUPlwWU_XaG1lQbAeP5CgMT0fGIqKaLXMpRqLtKmLMGkxDVVklWuloBTRfOCh4NEjTaXzV_hjNBwv8QEacWnirVe6cPkDvcoqOpq5N5w5TJ2051cCVKB5M0EA2a3VIkdI6ciipAbafICMC4nCgfNb9IVzOafsjS44_YEQsvVv1G8TqJaygwqcdG6wO7gX4J-QiXVf84rMacdiBFSWqN8EEDDeZMA" 
@@ -250,13 +445,17 @@
               >
               <span class="project-card__tag">Corporativo</span>
               <div class="project-card__overlay">
-                <h4 class="project-card__name">Complejo Empresarial Sur</h4>
-                <p class="project-card__desc">Mantenimiento y rediseño paisajístico</p>
+                <div class="project-card__content">
+                  <span class="project-card__meta">Superficie: 1,400 m²</span>
+                  <h3 class="project-card__name">Complejo Empresarial Sur</h3>
+                  <p class="project-card__desc">Rehabilitación paisajística integral, sistema de aspersores sectorizado y mantenimiento continuo.</p>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="project-card" data-animate>
+          <!-- Proyecto 3: Terraza Urbana y Jardín Vertical -->
+          <article class="project-card" data-category="urbano">
             <div class="project-card__image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80" 
@@ -266,13 +465,17 @@
               >
               <span class="project-card__tag">Urbano</span>
               <div class="project-card__overlay">
-                <h4 class="project-card__name">Terraza Verde Centro</h4>
-                <p class="project-card__desc">Jardín vertical y en macetas</p>
+                <div class="project-card__content">
+                  <span class="project-card__meta">Superficie: 65 m²</span>
+                  <h3 class="project-card__name">Terraza & Fachada Verde</h3>
+                  <p class="project-card__desc">Aprovechamiento de muros con jardineras colgantes, riego por microgoteo y especies purificadoras.</p>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="project-card" data-animate>
+          <!-- Proyecto 4: Oasis Tropical y Riego Tecnificado -->
+          <article class="project-card" data-category="riego">
             <div class="project-card__image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80" 
@@ -280,45 +483,453 @@
                 class="project-card__image"
                 loading="lazy"
               >
-              <span class="project-card__tag">Tropical</span>
+              <span class="project-card__tag">Riego Tecnificado</span>
               <div class="project-card__overlay">
-                <h4 class="project-card__name">Oasis Tropical Este</h4>
-                <p class="project-card__desc">Diseño exótico y riego automatizado</p>
+                <div class="project-card__content">
+                  <span class="project-card__meta">Ahorro Hídrico: -45%</span>
+                  <h3 class="project-card__name">Oasis Subtropical Inteligente</h3>
+                  <p class="project-card__desc">Integración de especies exóticas con sensores de humedad y programación estacional automática.</p>
+                </div>
               </div>
             </div>
           </article>
+
+          <!-- Proyecto 5: Huerto Urbano Sustentable -->
+          <article class="project-card" data-category="urbano">
+            <div class="project-card__image-wrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1584467541268-b040f83be3fd?w=800&q=80" 
+                alt="Huerto urbano orgánico con bancales de madera y hortalizas frescas" 
+                class="project-card__image"
+                loading="lazy"
+              >
+              <span class="project-card__tag">Sustentable</span>
+              <div class="project-card__overlay">
+                <div class="project-card__content">
+                  <span class="project-card__meta">Comunitario / Educativo</span>
+                  <h3 class="project-card__name">Huerto Urbano Orgánico</h3>
+                  <p class="project-card__desc">Bancales elevados de madera tratada, compostera integrada y sistema de riego por exudación.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 6: Jardín Zen & Espacio de Relajación -->
+          <article class="project-card" data-category="residencial">
+            <div class="project-card__image-wrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" 
+                alt="Jardín zen moderno con piedras pulidas, bambú y fuente sutil" 
+                class="project-card__image"
+                loading="lazy"
+              >
+              <span class="project-card__tag">Residencial</span>
+              <div class="project-card__overlay">
+                <div class="project-card__content">
+                  <span class="project-card__meta">Superficie: 90 m²</span>
+                  <h3 class="project-card__name">Jardín Zen y Relajación</h3>
+                  <p class="project-card__desc">Espacio de bajo mantenimiento con gravilla decorativa, rocas volcánicas y plantas perennes.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- COTIZACIÓN -->
+    <!-- ==========================================================
+         SECCIÓN COTIZADOR DIGITAL INTELIGENTE
+         ========================================================== -->
+    <section class="section section--quote" id="cotizador" aria-labelledby="calcTitle">
+      <div class="container">
+        <div class="calculator-card">
+          <div class="calculator-card__header">
+            <span class="badge badge--accent">Herramienta Interactiva</span>
+            <h2 id="calcTitle" class="calculator-card__title">Calculadora de Presupuesto Estimado</h2>
+            <p class="calculator-card__subtitle">
+              Calcula al instante un rango estimado de inversión para tu proyecto y el potencial de ahorro de agua mensual.
+            </p>
+          </div>
+
+          <div class="calculator-grid">
+            <!-- Panel de Controles -->
+            <div class="calculator-controls">
+              <!-- Control 1: Tipo de Servicio -->
+              <div class="calc-group">
+                <label class="calc-label">1. Selecciona el servicio principal:</label>
+                <div class="calc-service-options">
+                  <button type="button" class="calc-btn-option calc-btn-option--active" data-service="diseno" data-base-price="12">
+                    <span class="material-symbols-outlined" aria-hidden="true">design_services</span>
+                    <span>Diseño & Paisajismo</span>
+                  </button>
+                  <button type="button" class="calc-btn-option" data-service="riego" data-base-price="18">
+                    <span class="material-symbols-outlined" aria-hidden="true">water_drop</span>
+                    <span>Riego Automático</span>
+                  </button>
+                  <button type="button" class="calc-btn-option" data-service="mantenimiento" data-base-price="6">
+                    <span class="material-symbols-outlined" aria-hidden="true">yard</span>
+                    <span>Mantenimiento Mensual</span>
+                  </button>
+                  <button type="button" class="calc-btn-option" data-service="integral" data-base-price="25">
+                    <span class="material-symbols-outlined" aria-hidden="true">all_inclusive</span>
+                    <span>Servicio Integral (Todo Incluido)</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Control 2: Área del Terreno (Slider) -->
+              <div class="calc-group">
+                <div class="calc-label-row">
+                  <label for="areaSlider" class="calc-label">2. Superficie aproximada del terreno:</label>
+                  <span class="calc-area-val" id="areaValueDisplay">80 m²</span>
+                </div>
+                <input 
+                  type="range" 
+                  id="areaSlider" 
+                  min="20" 
+                  max="500" 
+                  step="10" 
+                  value="80" 
+                  class="calc-slider"
+                  aria-label="Superficie en metros cuadrados"
+                >
+                <div class="calc-slider-marks">
+                  <span>20 m²</span>
+                  <span>150 m²</span>
+                  <span>300 m²</span>
+                  <span>500 m²</span>
+                </div>
+              </div>
+
+              <!-- Control 3: Extras / Adicionales -->
+              <div class="calc-group">
+                <label class="calc-label">3. Opciones adicionales:</label>
+                <div class="calc-checkboxes">
+                  <label class="calc-check-item">
+                    <input type="checkbox" id="optSmartSensors" checked>
+                    <span>Sensores inteligentes y app WiFi (+15%)</span>
+                  </label>
+                  <label class="calc-check-item">
+                    <input type="checkbox" id="optNativePlants" checked>
+                    <span>Plantas autóctonas de bajo consumo (+10%)</span>
+                  </label>
+                  <label class="calc-check-item">
+                    <input type="checkbox" id="optLighting">
+                    <span>Iluminación solar nocturna (+12%)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel de Resultados -->
+            <div class="calculator-result-box">
+              <h3 class="calculator-result-title">Estimación Estimada</h3>
+              <p class="calculator-result-subtitle">Cálculo transparente sin compromiso:</p>
+
+              <div class="calc-price-display">
+                <span class="calc-price-currency">$</span>
+                <span class="calc-price-amount" id="calculatedPrice">1,240</span>
+                <span class="calc-price-period" id="calculatedPeriod">/ inversión inicial</span>
+              </div>
+
+              <div class="calc-metrics-grid">
+                <div class="calc-metric-pill">
+                  <span class="material-symbols-outlined" aria-hidden="true">water_drop</span>
+                  <div>
+                    <strong>Ahorro Hídrico</strong>
+                    <span id="calculatedWaterSave">-40% en factura</span>
+                  </div>
+                </div>
+                <div class="calc-metric-pill">
+                  <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                  <div>
+                    <strong>Tiempo Estimado</strong>
+                    <span id="calculatedTime">4 a 7 días hábiles</span>
+                  </div>
+                </div>
+                <div class="calc-metric-pill">
+                  <span class="material-symbols-outlined" aria-hidden="true">verified_user</span>
+                  <div>
+                    <strong>Garantía</strong>
+                    <span>100% de respaldo formal</span>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn--primary btn--full btn--large" id="applyQuoteBtn">
+                <span class="material-symbols-outlined btn__icon" aria-hidden="true">check_circle</span>
+                <span>Aplicar al Formulario de Contacto</span>
+              </button>
+
+              <p class="calculator-disclaimer">
+                * Valores orientativos. La cotización formal definitiva se valida tras la inspección técnica sin costo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN CÓMO TRABAJAMOS (PROCESO EN 4 PASOS)
+         ========================================================== -->
+    <section class="section section--white" id="proceso" aria-labelledby="processTitle">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Metodología Clara</span>
+          <h2 id="processTitle" class="section__title">Cómo Trabajamos en 4 Pasos</h2>
+          <p class="section__subtitle">
+            Un proceso sin sorpresas, con plazos definidos y respaldo en cada etapa del proyecto.
+          </p>
+        </header>
+
+        <div class="process-grid">
+
+          <!-- Paso 1 -->
+          <div class="process-card">
+            <div class="process-card__number">01</div>
+            <div class="process-card__icon-wrapper">
+              <span class="material-symbols-outlined" aria-hidden="true">contact_phone</span>
+            </div>
+            <h3 class="process-card__title">Diagnóstico Gratuito</h3>
+            <p class="process-card__desc">
+              Analizamos las dimensiones, tipo de suelo, asoleamiento y requerimientos hídricos de tu propiedad.
+            </p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="process-card">
+            <div class="process-card__number">02</div>
+            <div class="process-card__icon-wrapper">
+              <span class="material-symbols-outlined" aria-hidden="true">view_in_ar</span>
+            </div>
+            <h3 class="process-card__title">Diseño & Presupuesto</h3>
+            <p class="process-card__desc">
+              Te entregamos un modelo 3D con propuesta de especies y un presupuesto formal detallado ítem por ítem.
+            </p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="process-card">
+            <div class="process-card__number">03</div>
+            <div class="process-card__icon-wrapper">
+              <span class="material-symbols-outlined" aria-hidden="true">construction</span>
+            </div>
+            <h3 class="process-card__title">Instalación Tecnificada</h3>
+            <p class="process-card__desc">
+              Nuestro equipo profesional ejecuta la obra de forma rápida, limpia y con equipamiento moderno.
+            </p>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="process-card">
+            <div class="process-card__number">04</div>
+            <div class="process-card__icon-wrapper">
+              <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+            </div>
+            <h3 class="process-card__title">Garantía & Mantención</h3>
+            <p class="process-card__desc">
+              Acompañamiento continuo con calendarios de poda y chequeo de sistemas de riego programados.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN TESTIMONIOS (SOCIAL PROOF)
+         ========================================================== -->
+    <section class="section section--muted" id="testimonios" aria-labelledby="testimonialsTitle">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Opiniones Reales</span>
+          <h2 id="testimonialsTitle" class="section__title">Lo que Dicen Quienes Confían en Nosotros</h2>
+          <p class="section__subtitle">
+            Hogares y empresas que cambiaron la informalidad por un servicio planificado, formal y garantizado.
+          </p>
+        </header>
+
+        <div class="testimonials-grid">
+
+          <!-- Testimonio 1 -->
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="Calificación: 5 de 5 estrellas">
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "Buscaba una empresa seria porque estaba cansada de jardineros que no cumplían con los días pactados. Pulmón Verde instaló el riego automático y rediseñó el jardín en menos de dos semanas. Son súper puntuales y profesionales."
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img 
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" 
+                alt="Foto de Mariana Silva" 
+                class="testimonial-card__avatar"
+                loading="lazy"
+              >
+              <div>
+                <cite class="testimonial-card__name">Mariana Silva</cite>
+                <span class="testimonial-card__role">Propietaria Residencial - Barrio Los Álamos</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Testimonio 2 -->
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="Calificación: 5 de 5 estrellas">
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "El sistema de riego con sensor de lluvia nos redujo un 40% el gasto en la cuenta del agua durante el verano. El presupuesto formal y detallado nos dio total seguridad para aprobar el proyecto."
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" 
+                alt="Foto de Carlos Menéndez" 
+                class="testimonial-card__avatar"
+                loading="lazy"
+              >
+              <div>
+                <cite class="testimonial-card__name">Carlos Menéndez</cite>
+                <span class="testimonial-card__role">Administrador Condominio Bellavista</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Testimonio 3 -->
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="Calificación: 5 de 5 estrellas">
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined star-icon" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "Crearon un jardín vertical en el patio de nuestra cafetería que todos los clientes fotografían. Supieron qué plantas soportaban sombra y calor sin marchitarse. ¡Un trabajo impecable!"
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img 
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" 
+                alt="Foto de Rodrigo Morales" 
+                class="testimonial-card__avatar"
+                loading="lazy"
+              >
+              <div>
+                <cite class="testimonial-card__name">Rodrigo Morales</cite>
+                <span class="testimonial-card__role">Dueño de Café Botánico</span>
+              </div>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN PREGUNTAS FRECUENTES (FAQ ACORDEÓN)
+         ========================================================== -->
+    <section class="section section--white" id="faq" aria-labelledby="faqTitle">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__badge">Dudas Resueltas</span>
+          <h2 id="faqTitle" class="section__title">Preguntas Frecuentes</h2>
+          <p class="section__subtitle">
+            Todo lo que necesitas saber antes de contratar nuestros servicios.
+          </p>
+        </header>
+
+        <div class="faq-accordion">
+
+          <!-- FAQ Item 1 -->
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq1">
+              <span class="faq-item__question">¿La visita de diagnóstico y el presupuesto tienen algún costo?</span>
+              <span class="material-symbols-outlined faq-item__icon" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-item__content" id="faq1" hidden>
+              <p class="faq-item__text">
+                No, la primera evaluación técnica en terreno o virtual y la entrega del presupuesto detallado son <strong>100% gratuitos y sin compromiso</strong>. Te explicamos las opciones disponibles y tú decides si avanzar.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq2">
+              <span class="faq-item__question">¿Cómo ayuda el riego automático a ahorrar agua?</span>
+              <span class="material-symbols-outlined faq-item__icon" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-item__content" id="faq2" hidden>
+              <p class="faq-item__text">
+                Los sistemas inteligentes riegan en horarios de baja evaporación (amanecer o noche) y dosifican la cantidad exacta que cada planta necesita. Además, incorporan sensores de lluvia y humedad para suspender automáticamente el riego si llueve, ahorrando hasta un 40% de agua.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq3">
+              <span class="faq-item__question">¿Qué incluye el plan de mantenimiento integral periódico?</span>
+              <span class="material-symbols-outlined faq-item__icon" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-item__content" id="faq3" hidden>
+              <p class="faq-item__text">
+                Incluye corte y perfilado de césped, poda de formación y limpieza de árboles y arbustos, control ecológico de plagas, desmalezado manual, fertilización orgánica y revisión preventiva periódica del sistema de riego y aspersores.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq4">
+              <span class="faq-item__question">¿Trabajan con plantas autóctonas de bajo consumo de agua?</span>
+              <span class="material-symbols-outlined faq-item__icon" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="faq-item__content" id="faq4" hidden>
+              <p class="faq-item__text">
+                ¡Sí! Es uno de nuestros pilares de paisajismo sustentable (xerojardinería). Priorizamos especies nativas y adaptadas que resisten temporadas secas, aportan belleza y atraen polinizadores sin requerir riego constante.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN COTIZACIÓN Y CONTACTO
+         ========================================================== -->
     <section class="section section--quote" id="contacto" aria-labelledby="quoteTitle">
       <div class="section__pattern" aria-hidden="true"></div>
 
       <div class="container">
-        <div class="quote-card" data-animate>
-          <div class="quote-card__visual" aria-hidden="true">
-            <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrVoMRRhBBXlClFIDJoam17nK81-IJD97cFAox3wKFg1N3kW9ctrUlHNJdTBZuitqSA4eNZy66qLDlJdI605AJRoIy-PGipBWdw7sT_WHE5RhiTRH_Q8C4ot2kRNs9TSzgtpbJmBMjAt0XZI7sk9h6GI442QoyX0-VF3yWRUVQQhmfubJeEKONpsTlQEOELc1GYxwt-Oce9eSnNo3aBlgbjOntOm7MmVsGrAXoao-ShiOCtdP7eflfyQ" 
-              alt="Jardinero profesional plantando un árbol joven" 
-              class="quote-card__image"
-              loading="lazy"
-            >
-            <div class="quote-card__gradient"></div>
-          </div>
+        <div class="contact-card">
 
-          <div class="quote-card__form-wrapper">
-            <header class="quote-card__header">
-              <h2 id="quoteTitle" class="quote-card__title">Solicita tu Cotización Gratis</h2>
-              <p class="quote-card__subtitle">
-                Cuéntanos sobre tu proyecto y te contactaremos en menos de 24 horas.
+          <!-- Columna 1: Formulario -->
+          <div class="contact-card__form-wrapper">
+            <header class="contact-card__header">
+              <span class="badge badge--accent">Atención Inmediata</span>
+              <h2 id="quoteTitle" class="contact-card__title">Solicita tu Cotización Formal</h2>
+              <p class="contact-card__subtitle">
+                Cuéntanos sobre tu espacio y te contactaremos en menos de 24 horas hábiles.
               </p>
             </header>
 
             <form class="form" id="quoteForm" novalidate>
+              <!-- Fila 1: Nombre + Teléfono -->
               <div class="form__row">
                 <div class="form__group">
-                  <label for="name" class="form__label">Nombre completo</label>
+                  <label for="name" class="form__label">Nombre completo *</label>
                   <input 
                     type="text" 
                     id="name" 
@@ -331,7 +942,7 @@
                   <span class="form__error" aria-live="polite"></span>
                 </div>
                 <div class="form__group">
-                  <label for="phone" class="form__label">Teléfono</label>
+                  <label for="phone" class="form__label">Teléfono o WhatsApp *</label>
                   <input 
                     type="tel" 
                     id="phone" 
@@ -345,8 +956,9 @@
                 </div>
               </div>
 
+              <!-- Fila 2: Email -->
               <div class="form__group">
-                <label for="email" class="form__label">Correo electrónico</label>
+                <label for="email" class="form__label">Correo electrónico *</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -359,52 +971,146 @@
                 <span class="form__error" aria-live="polite"></span>
               </div>
 
-              <div class="form__group">
-                <label for="service" class="form__label">Tipo de Servicio</label>
-                <div class="form__select-wrapper">
-                  <select id="service" name="service" class="form__input form__select" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="diseno">Diseño de Jardines</option>
-                    <option value="riego">Riego Automático</option>
-                    <option value="mantenimiento">Mantenimiento Integral</option>
-                    <option value="otro">Otro / No estoy seguro</option>
-                  </select>
-                  <span class="material-symbols-outlined form__select-icon" aria-hidden="true">expand_more</span>
+              <!-- Fila 3: Tipo de servicio + Superficie aproximada -->
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="service" class="form__label">Tipo de Servicio *</label>
+                  <div class="form__select-wrapper">
+                    <select id="service" name="service" class="form__input form__select" required>
+                      <option value="" disabled selected>Selecciona una opción</option>
+                      <option value="diseno">Diseño de Jardines & Paisajismo</option>
+                      <option value="riego">Riego Automático Inteligente</option>
+                      <option value="mantenimiento">Mantenimiento Integral</option>
+                      <option value="integral">Servicio Integral (Diseño + Riego)</option>
+                      <option value="otro">Otro / Proyecto a medida</option>
+                    </select>
+                    <span class="material-symbols-outlined form__select-icon" aria-hidden="true">expand_more</span>
+                  </div>
+                  <span class="form__error" aria-live="polite"></span>
                 </div>
-                <span class="form__error" aria-live="polite"></span>
+
+                <div class="form__group">
+                  <label for="terrainArea" class="form__label">Superficie aprox. (m²)</label>
+                  <input 
+                    type="text" 
+                    id="terrainArea" 
+                    name="terrainArea" 
+                    class="form__input" 
+                    placeholder="Ej. 80 m²"
+                  >
+                </div>
               </div>
 
+              <!-- Fila 4: Mensaje / Detalles -->
               <div class="form__group">
-                <label for="details" class="form__label">Detalles del terreno <span class="form__optional">(opcional)</span></label>
+                <label for="details" class="form__label">Detalles del terreno o proyecto <span class="form__optional">(opcional)</span></label>
                 <textarea 
                   id="details" 
                   name="details" 
                   class="form__input form__textarea" 
-                  rows="4" 
-                  placeholder="Mts² aproximados, estado actual, ideas que tienes en mente..."
+                  rows="3" 
+                  placeholder="Coméntanos si es casa o empresa, tipo de plantas que te gustaría tener, etc."
                 ></textarea>
               </div>
 
+              <!-- Botón de Envío -->
               <button type="submit" class="btn btn--primary btn--full btn--submit">
-                <span class="btn__text">Enviar Solicitud</span>
+                <span class="btn__text">Enviar Solicitud de Cotización</span>
                 <span class="material-symbols-outlined btn__icon" aria-hidden="true">send</span>
               </button>
 
+              <!-- Nota de Privacidad -->
               <p class="form__privacy">
                 <span class="material-symbols-outlined" aria-hidden="true">lock</span>
-                Tus datos están protegidos. No compartimos tu información con terceros.
+                Tus datos están protegidos. Respuesta en menos de 24 horas hábiles.
               </p>
             </form>
           </div>
+
+          <!-- Columna 2: Información Directa, Horarios y Ubicación -->
+          <div class="contact-card__info">
+            <h3 class="contact-info__title">Oficina & Contacto</h3>
+            <p class="contact-info__desc">
+              Visítanos o contáctanos por nuestros canales oficiales para una atención personalizada:
+            </p>
+
+            <ul class="contact-info__list">
+              <li class="contact-info__item">
+                <span class="material-symbols-outlined contact-info__icon" aria-hidden="true">location_on</span>
+                <div>
+                  <strong>Dirección Central</strong>
+                  <p>Av. de los Bosques 123, Ciudad Verde</p>
+                </div>
+              </li>
+              <li class="contact-info__item">
+                <span class="material-symbols-outlined contact-info__icon" aria-hidden="true">phone_in_talk</span>
+                <div>
+                  <strong>Teléfono Directo</strong>
+                  <p><a href="tel:+34900123456" class="contact-info__link">+34 900 123 456</a></p>
+                </div>
+              </li>
+              <li class="contact-info__item">
+                <span class="material-symbols-outlined contact-info__icon" aria-hidden="true">mail</span>
+                <div>
+                  <strong>Correo Electrónico</strong>
+                  <p><a href="mailto:hola@pulmonverde.com" class="contact-info__link">hola@pulmonverde.com</a></p>
+                </div>
+              </li>
+              <li class="contact-info__item">
+                <span class="material-symbols-outlined contact-info__icon" aria-hidden="true">schedule</span>
+                <div>
+                  <strong>Horario de Atención</strong>
+                  <p>Lun a Vie: 08:00 - 18:00 hrs</p>
+                  <p>Sábados: 09:00 - 13:00 hrs</p>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Mapa Visual / Tarjeta de Ubicación Estilizada -->
+            <div class="map-card">
+              <div class="map-card__header">
+                <span class="material-symbols-outlined" aria-hidden="true">map</span>
+                <span>Área de Cobertura Regional</span>
+              </div>
+              <div class="map-card__body">
+                <p>Brindamos cobertura completa en zona urbana, complejos residenciales y polígonos empresariales.</p>
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm map-card__btn">
+                  <span>Abrir en Google Maps</span>
+                  <span class="material-symbols-outlined btn__icon" aria-hidden="true">open_in_new</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- WhatsApp Direct Card -->
+            <div class="whatsapp-quick-card">
+              <div class="whatsapp-quick-card__text">
+                <strong>¿Prefieres chatear ahora?</strong>
+                <p>Escríbenos directamente por WhatsApp y te asesoramos al instante.</p>
+              </div>
+              <a href="https://wa.me/569XXXXXXXX?text=Hola%20Pulmón%20Verde,%20quiero%20cotizar%20un%20servicio" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn--whatsapp">
+                <span class="material-symbols-outlined btn__icon" aria-hidden="true">chat</span>
+                <span>Chat Directo</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- FOOTER -->
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
+
+        <!-- Columna 1: Marca -->
         <div class="footer__brand">
           <img 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMSwDdGz36tfTNKzoRWXDhBRFq7zZKYExlBfpgQIL_kO3VB9Hiul4b4uuUPL3fmwiIbXfzQf2cGGlu2ALHdlcJnJkfn24Yose_Y348XZXSmDj5xSRxfomDVH6Dm_9e3YrgpWCK4_6C4bOju7rM-tJiNs7vYAjnQGVch1_hvhsSRdLuijnUn7hK7XxLS8KxyzOsR5FuiG3BXe509P13ZZse2D0gML9sAZ8YLQqgwiBiARDbvK5h3MAvEpZOX49t2dKjaYs" 
@@ -416,22 +1122,31 @@
           >
           <p class="footer__description">
             Más de 10 años creando espacios verdes que inspiran vida y bienestar. 
-            Tu jardín, nuestra pasión.
+            Tu jardín tecnificado, nuestra pasión botánica.
           </p>
+          <div class="footer__badges">
+            <span class="footer__badge-item">🌿 100% Sustentable</span>
+            <span class="footer__badge-item">💧 Riego Eficiente</span>
+          </div>
         </div>
 
+        <!-- Columna 2: Enlaces rápidos -->
         <nav class="footer__nav" aria-label="Enlaces del pie de página">
           <h4 class="footer__heading">Enlaces Rápidos</h4>
           <ul class="footer__list">
             <li><a href="#inicio" class="footer__link">Inicio</a></li>
-            <li><a href="#servicios" class="footer__link">Servicios</a></li>
-            <li><a href="#proyectos" class="footer__link">Proyectos</a></li>
-            <li><a href="#contacto" class="footer__link">Cotizar</a></li>
+            <li><a href="#servicios" class="footer__link">Nuestros Servicios</a></li>
+            <li><a href="#antes-despues" class="footer__link">Antes y Después</a></li>
+            <li><a href="#proyectos" class="footer__link">Portafolio de Obras</a></li>
+            <li><a href="#cotizador" class="footer__link">Calculadora de Precios</a></li>
+            <li><a href="#proceso" class="footer__link">Metodología de Trabajo</a></li>
+            <li><a href="#contacto" class="footer__link">Solicitar Cotización</a></li>
           </ul>
         </nav>
 
+        <!-- Columna 3: Contacto -->
         <div class="footer__contact">
-          <h4 class="footer__heading">Contáctanos</h4>
+          <h4 class="footer__heading">Datos de Contacto</h4>
           <ul class="footer__list">
             <li class="footer__contact-item">
               <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
@@ -445,36 +1160,31 @@
               <span class="material-symbols-outlined" aria-hidden="true">mail</span>
               <a href="mailto:hola@pulmonverde.com" class="footer__link">hola@pulmonverde.com</a>
             </li>
+            <li class="footer__contact-item">
+              <span class="material-symbols-outlined" aria-hidden="true">access_time</span>
+              <span>Lun a Vie: 08:00 - 18:00</span>
+            </li>
           </ul>
         </div>
 
+        <!-- Columna 4: Consejos de Jardinería -->
         <aside class="footer__tips" aria-labelledby="tipsHeading">
-          <h4 id="tipsHeading" class="footer__heading">Consejos del Mes</h4>
+          <h4 id="tipsHeading" class="footer__heading">Consejo Sustentable</h4>
           <div class="tip-card">
-            <span class="tip-card__badge">Verano 2026</span>
-            <h5 class="tip-card__title">Cuidado de plantas en temporada de calor</h5>
+            <span class="tip-card__badge">Temporada 2026</span>
+            <h5 class="tip-card__title">Optimiza el riego de tus plantas</h5>
             <p class="tip-card__text">
-              Riega temprano en la mañana o al atardecer para evitar evaporación. 
-              Mantén una capa de mulch para conservar humedad.
+              Riega antes de las 9:00 AM o al atardecer para evitar que hasta un 30% del agua se pierda por evaporación solar. Incorporar mulch vegetal conserva la humedad de la tierra.
             </p>
           </div>
         </aside>
+
       </div>
 
-      <!-- Botón Flotante WhatsApp -->
-      <a href="https://wa.me/569XXXXXXXX?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
-         class="whatsapp-btn" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="Contactar por WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
-        </svg>
-      </a>
-
+      <!-- Barra inferior: Copyright y redes -->
       <div class="footer__bottom">
         <p class="footer__copyright">
-          © 2026 Pulmón Verde. Todos los derechos reservados.
+          © 2026 Pulmón Verde. Todos los derechos reservados. Proyecto educativo de paisajismo y desarrollo web.
         </p>
         <div class="footer__socials">
           <a href="#" class="footer__social" aria-label="Facebook">
@@ -488,6 +1198,31 @@
     </div>
   </footer>
 
+  <!-- ============================================================
+       ELEMENTOS FLOTANTES
+       ============================================================ -->
+  <!-- Botón Flotante de WhatsApp con tooltip -->
+  <a href="https://wa.me/569XXXXXXXX?text=Hola%20Pulmón%20Verde,%20me%20gustaría%20obtener%20más%20información" 
+     class="whatsapp-btn" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+      <path d="M9 10a0.5.5 0 0 0 1 0V9a0.5.5 0 0 0-.5-.5H9a0.5.5 0 0 0-.5.5v1a5 5 0 0 0 5 5h1a0.5.5 0 0 0 .5-.5v-.5a0.5.5 0 0 0-.5-.5h-1a0.5.5 0 0 0-.5.5" />
+    </svg>
+    <span class="whatsapp-tooltip">¿Consultas? ¡Chatea aquí!</span>
+  </a>
+
+  <!-- Botón Flotante Volver Arriba -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba de la página">
+    <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+  </button>
+
+  <!-- Contenedor de Alertas Toast -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
   <script src="script.js" defer></script>
 </body>
 </html>
